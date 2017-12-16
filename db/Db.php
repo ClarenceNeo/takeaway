@@ -142,15 +142,17 @@ class Db
     $this->sql_value = trim($this->sql_value, ',');
 
     $this->sql = "insert into $this->table ($this->sql_column) values ($this->sql_value)";
-
-    // dd($this->sql);
-    return $this->execute();
+    $r = $this->execute();
+    $this->init_sql();
+    return $r;
   }
 
   public function delete()
   {
     $this->sql = "DELETE FROM $this->table $this->sql_where";
-    return $this->execute();
+    $r = $this->execute();
+    $this->init_sql();
+    return $r;
   }
 
   public function update($row)
@@ -160,7 +162,9 @@ class Db
     }
     $this->sql_update = trim($this->sql_update, ',');
     $this->sql = "UPDATE $this->table SET $this->sql_update $this->sql_where";
-    return $this->execute();
+    $r = $this->execute();
+    $this->init_sql();
+    return $r;
   }
 
   public function get()
@@ -172,13 +176,11 @@ class Db
       $this->sql_where = trim($this->sql_where, ' AND');
     }
 
-    // dd($this->sql_where);
-
     $this->sql = "SELECT $this->sql_select from $this->table $this->sql_where $this->sql_order_by $this->sql_limit";
-    dd($this->sql);
     $this->execute();
-    $this->init_get();
-    return $this->get_data();
+    $data = $this->get_data();
+    $this->init_sql();
+    return $data;
   }
 
   // sql 语句准备与执行
@@ -201,14 +203,23 @@ class Db
     return $this->pdo_stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function init_get()
+  public function init_sql()
   {
     $this->sql =
     $this->sql_select =
+    $this->sql_column =
+    $this->sql_value =
+    $this->sql_update =
     $this->sql_where =
     $this->sql_order_by =
     $this->sql_limit = '';
     $this->where_count = 0;
     $this->where_relation = 'AND';
+    $this->pdo_stmt = null;
+  }
+
+  public function init_insert()
+  {
+
   }
 }
