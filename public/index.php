@@ -7,7 +7,7 @@ $db->connect();
 
 $data = $db
   ->where('username', 'whh')
-  ->where('password', '<', 200)// balance > 10
+  ->or_where('password', '<', 200)// balance > 10
   ->where([
    'a'        => 1,
    'username' => 'whh',

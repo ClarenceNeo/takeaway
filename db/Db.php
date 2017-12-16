@@ -8,7 +8,11 @@ class Db
 
   public $sql = '';
   public $sql_select = '';
+
   public $sql_where = '';
+  public $where_relation = 'AND';
+  public $where_count = 0;
+
   public $sql_order_by = '';
   public $sql_limit = '';
 
@@ -38,29 +42,46 @@ class Db
 
   public function where()
   {
+    $this->where_relation = 'AND';
+    return call_user_func_array([$this, 'make_where'], func_get_args());
+  }
+
+  public function or_where()
+  {
+    $this->where_relation = 'OR';
+    return call_user_func_array([$this, 'make_where'], func_get_args());
+  }
+
+  public function make_where()
+  {
     $args = func_get_args();
 
     if (!$this->sql_where) {
       $this->sql_where = 'WHERE ';
     }
 
-    // dd($this->sql_where);
-
     if (count($args) == 2) {
-      $this->sql_where .= "$args[0] = '$args[1]'";
+      $this->sql_where .= $this->make_where_condition($args[0], "=", $args[1]);
     }else if(count($args) == 3){
-      $this->sql_where .= "$args[0] $args[1] '$args[2]'";
+      $this->sql_where .= $this->make_where_condition($args[0], $args[1], $args[2]);
     }else {
       if (is_array($args[0])) {
         // dd($args);
         foreach ($args[0] as $col => $val) {
-          $this->where($col, $val);
+          $this->make_where_condition($col, "=", $val);
         }
       }
     }
 
-    $this->sql_where .= ' AND ';
+    $this->where_count++;
     return $this;
+  }
+
+  public function make_where_condition($col, $operator, $val)
+  {
+    if ($this->where_count)
+      $this->sql_where .= " $this->where_relation ";
+    $this->sql_where .= "$col $operator '$val'";
   }
 
   public function order_by($by, $direction = 'desc')
@@ -119,7 +140,7 @@ class Db
       $this->sql_where = trim($this->sql_where, ' AND');
     }
 
-    dd($this->sql_where);
+    // dd($this->sql_where);
 
     $this->sql = "SELECT $this->sql_select from $this->table $this->sql_where $this->sql_order_by $this->sql_limit";
     dd($this->sql);
