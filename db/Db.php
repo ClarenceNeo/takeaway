@@ -84,6 +84,16 @@ class Db
     $this->sql_where .= "$col $operator '$val'";
   }
 
+  public function like($col, $keyword)
+  {
+    return $this->where($col, 'like', "%$keyword%");
+  }
+
+  public function or_like($col, $keyword)
+  {
+    return $this->or_where($col, 'like', "%$keyword%");
+  }
+
   public function order_by($by, $direction = 'desc')
   {
     $this->sql_order_by = "ORDER BY $by $direction";

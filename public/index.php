@@ -6,12 +6,12 @@ $db = new Db('user');
 $db->connect();
 
 $data = $db
-  ->where('username', 'whh')
-  ->or_where('password', '<', 200)// balance > 10
-  ->where([
-   'a'        => 1,
-   'username' => 'whh',
-  ])
+  ->like('username', 'whh')
+  ->or_like('password', 200)
+  // ->where([
+  //  'a'        => 1,
+  //  'username' => 'whh',
+  // ])
   ->limit(10)
   ->select(['id', 'username', 'a', 'b'])
   ->order_by('id', 'desc')
