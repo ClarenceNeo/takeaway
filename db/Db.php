@@ -13,6 +13,11 @@ class Db
   public $where_relation = 'AND';
   public $where_count = 0;
 
+  public $sql_column = '';
+  public $sql_value = '';
+
+  public $sql_update = '';
+
   public $sql_order_by = '';
   public $sql_limit = '';
 
@@ -126,9 +131,20 @@ class Db
 
   // 增删查改
 
-  public function insert()
+  public function insert($row)
   {
+    foreach($row as $col => $val){
+      $this->sql_column .= "$col,";
+      $this->sql_value .= "'$val',";
+    }
 
+    $this->sql_column = trim($this->sql_column, ',');
+    $this->sql_value = trim($this->sql_value, ',');
+
+    $this->sql = "insert into $this->table ($this->sql_column) values ($this->sql_value)";
+
+    // dd($this->sql);
+    return $this->execute();
   }
 
   public function delete()
@@ -170,7 +186,7 @@ class Db
     if (!$this->pdo_stmt)
       $this->prepare();
     
-    return $this->pdo_stm->execute();
+    return $this->pdo_stmt->execute();
   }
 
   public function get_data()
