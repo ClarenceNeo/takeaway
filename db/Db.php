@@ -44,12 +44,15 @@ class Db
       $this->sql_where = 'WHERE ';
     }
 
+    // dd($this->sql_where);
+
     if (count($args) == 2) {
-      $this->sql_where = "$args[0] = '$args[1]'";
+      $this->sql_where .= "$args[0] = '$args[1]'";
     }else if(count($args) == 3){
-      $this->sql_where = "$args[0] $args[1] '$args[2]'";
+      $this->sql_where .= "$args[0] $args[1] '$args[2]'";
     }else {
       if (is_array($args[0])) {
+        // dd($args);
         foreach ($args[0] as $col => $val) {
           $this->where($col, $val);
         }
@@ -115,6 +118,8 @@ class Db
     if ($this->sql_where) {
       $this->sql_where = trim($this->sql_where, ' AND');
     }
+
+    dd($this->sql_where);
 
     $this->sql = "SELECT $this->sql_select from $this->table $this->sql_where $this->sql_order_by $this->sql_limit";
     dd($this->sql);
