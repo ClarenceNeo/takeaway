@@ -149,12 +149,18 @@ class Db
 
   public function delete()
   {
-
+    $this->sql = "DELETE FROM $this->table $this->sql_where";
+    return $this->execute();
   }
 
-  public function update()
+  public function update($row)
   {
-
+    foreach($row as $col => $val){
+      $this->sql_update .= "$col = '$val',";
+    }
+    $this->sql_update = trim($this->sql_update, ',');
+    $this->sql = "UPDATE $this->table SET $this->sql_update $this->sql_where";
+    return $this->execute();
   }
 
   public function get()
@@ -171,6 +177,7 @@ class Db
     $this->sql = "SELECT $this->sql_select from $this->table $this->sql_where $this->sql_order_by $this->sql_limit";
     dd($this->sql);
     $this->execute();
+    $this->init_get();
     return $this->get_data();
   }
 
@@ -192,5 +199,16 @@ class Db
   public function get_data()
   {
     return $this->pdo_stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function init_get()
+  {
+    $this->sql =
+    $this->sql_select =
+    $this->sql_where =
+    $this->sql_order_by =
+    $this->sql_limit = '';
+    $this->where_count = 0;
+    $this->where_relation = 'AND';
   }
 }

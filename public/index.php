@@ -17,9 +17,21 @@ $db->connect();
 //   ->order_by('id', 'desc')
 //   ->get();
 
-$r = $db
-    ->insert([
-      'username' => 'lsd',
-      'password' => '123'
-    ]);
+// $r = $db
+//     ->insert([
+//       'username' => 'lsd',
+//       'password' => '123'
+//     ]);
 
+// $r = $db
+//     ->where('id', 2)
+//     ->update([
+//       'username' => 'udd',
+//       'password' => '333'
+//     ]);
+
+  $r = $db
+    ->where('id', 2)
+    ->delete();
+
+var_dump($r);
