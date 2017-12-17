@@ -1,9 +1,8 @@
 <?php
 require_once("../util/helper.php");
-import('db/Db');
+import('api/Cat');
 
-$db = new Db('user');
-$db->connect();
+$db = new Cat();
 
 // $data = $db
 //   ->like('username', 'whh')
@@ -17,27 +16,27 @@ $db->connect();
 //   ->order_by('id', 'desc')
 //   ->get();
 
-$r = $db
-    ->insert([
-      'username' => 'lsd',
-      'password' => '123'
-    ]);
+// $r = $db
+//     ->insert([
+//       'username' => 'lsd',
+//       'password' => '123'
+//     ]);
 
-$r = $db
-    ->where('id', 13)
-    ->update([
-      'username' => 'hhh',
-      'password' => '555'
-    ]);
+// $r = $db
+//     ->where('id', 13)
+//     ->update([
+//       'username' => 'hhh',
+//       'password' => '555'
+//     ]);
 
-$r = $db
-    ->where('id', 14)
-    ->delete();
+// $r = $db
+//     ->where('id', 23)
+//     ->delete();
 
-$r = $db
-    ->get();
+// $r = $db
+//     ->get();
 // $r = $db
 //   ->where('id', 2)
 //   ->delete();
 
-var_dump($r);
+// var_dump($r);

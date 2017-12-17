@@ -47,6 +47,8 @@ class Db
 
   public function where()
   {
+
+    // dd(func_get_args());
     $this->where_relation = 'AND';
     return call_user_func_array([$this, 'make_where'], func_get_args());
   }
@@ -60,6 +62,8 @@ class Db
   public function make_where()
   {
     $args = func_get_args();
+
+    // dd($args);
 
     if (!$this->sql_where) {
       $this->sql_where = 'WHERE ';
@@ -77,8 +81,6 @@ class Db
         }
       }
     }
-
-    $this->where_count++;
     return $this;
   }
 
@@ -87,6 +89,7 @@ class Db
     if ($this->where_count)
       $this->sql_where .= " $this->where_relation ";
     $this->sql_where .= "$col $operator '$val'";
+    $this->where_count++;
   }
 
   public function like($col, $keyword)
@@ -177,6 +180,7 @@ class Db
     }
 
     $this->sql = "SELECT $this->sql_select from $this->table $this->sql_where $this->sql_order_by $this->sql_limit";
+    // dd($this->sql);
     $this->execute();
     $data = $this->get_data();
     $this->init_sql();
@@ -192,9 +196,7 @@ class Db
 
   public function execute()
   {
-    if (!$this->pdo_stmt)
-      $this->prepare();
-    
+    $this->prepare();
     return $this->pdo_stmt->execute();
   }
 
@@ -215,11 +217,5 @@ class Db
     $this->sql_limit = '';
     $this->where_count = 0;
     $this->where_relation = 'AND';
-    $this->pdo_stmt = null;
-  }
-
-  public function init_insert()
-  {
-
   }
 }
