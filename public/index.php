@@ -2,8 +2,12 @@
 require_once("../util/helper.php");
 import('api/Cat');
 
-$db = new Cat();
+$cat = new Cat();
 
+$cat ->change(['title'=>'b','id'=>2]);
+// $r = $cat->add(['title'=>'c']);
+
+// dd($r);
 // $data = $db
 //   ->like('username', 'whh')
 //   ->or_like('password', 200)

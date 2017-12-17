@@ -160,11 +160,13 @@ class Db
 
   public function update($row)
   {
+    unset($row['id']);
     foreach($row as $col => $val){
       $this->sql_update .= "$col = '$val',";
     }
     $this->sql_update = trim($this->sql_update, ',');
     $this->sql = "UPDATE $this->table SET $this->sql_update $this->sql_where";
+    // dd($this->sql);
     $r = $this->execute();
     $this->init_sql();
     return $r;
@@ -218,4 +220,28 @@ class Db
     $this->where_count = 0;
     $this->where_relation = 'AND';
   }
+
+  public function all_column()
+  {
+    $this->sql = "desc $this->table";
+    $this->execute();
+    $r = $this->get_data();
+    $this->init_sql();
+    return $r;
+  }
+
+  public function all_column_name()
+  {
+    $name_list = [];
+    foreach ($this->all_column() as $col) {
+      $name_list[] = $col['Field'];
+    }
+    return $name_list;
+  }
+
+  public function last_id()
+  {
+    return $this->pdo->lastInsertId();
+  }
 }
+
