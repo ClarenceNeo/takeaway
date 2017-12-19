@@ -26,6 +26,7 @@ class Db
   public function __construct($table)
   {
     $this->table = $table;
+    $this->connect();
   }
 
   public function connect()
@@ -242,6 +243,12 @@ class Db
   public function last_id()
   {
     return $this->pdo->lastInsertId();
+  }
+
+  public function exist()
+  {
+    $this->limit(1);
+    return (bool) $this->get();
   }
 }
 

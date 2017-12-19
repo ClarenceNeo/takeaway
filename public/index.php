@@ -1,10 +1,21 @@
 <?php
 require_once("../util/helper.php");
 import('api/Cat');
+import('api/Product');
 
 $cat = new Cat();
 
-$cat ->change(['title'=>'b','id'=>2]);
+$product = new Product();
+
+// $r = $cat->safe_fill(['title' => 'a'])
+//             ->save($msg);
+// dd($r, $msg);
+
+// $r = $product->safe_fill(['title' => '12234', 'price' => 3233])
+//             ->save($msg);
+// dd($r, $msg);
+
+// $cat ->change(['title'=>'b','id'=>2]);
 // $r = $cat->add(['title'=>'c']);
 
 // dd($r);

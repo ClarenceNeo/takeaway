@@ -1,14 +1,18 @@
 <?php
 import('db/Db');
+import('validator/Validator');
 
 class Model extends Db
 {
   public $filled = [];
 
+  public $validator;
+  public $rule;
+
   public function __construct()
   {
     parent::__construct($this->table);
-    $this->connect();
+    $this->validator = new Validator($this->table);
   }
 
   public function fill($row)
@@ -31,9 +35,25 @@ class Model extends Db
     return $this;
   }
 
+  public function validate_filled(&$msg){
+    foreach ($this->filled as $col => $val) {
+      $is_valid = $this->validator->validate_rules($val,@$this->rule[$col], $validator_msg);
+      if (!$is_valid) {
+        $msg[$col] = $validator_msg;
+        return false;
+      }
+    }
+    return true;
+  }
+
   public function save(&$msg = [])
   {
-    $filled = $this->filled;
+    $filled = &$this->filled;
+
+    $valid = $this->validate_filled($msg);
+    if ( ! $valid)
+      return false;
+
     $is_update = (bool) $id = @$filled['id'];
 
     if ($is_update) {
@@ -52,18 +72,6 @@ class Model extends Db
       }
       return false;
     }
-  }
-
-  public function add($row)
-  {
-    $this
-      ->safe_fill($row)
-      ->save();
-  }
-
-  public function change($row)
-  {
-    return $this->add($row);
   }
 
 }
