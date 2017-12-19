@@ -4,11 +4,10 @@ import('model/Model');
 
 class Api extends Model
 {
-  public function add($row)
+  public function add($param, &$msg)
   {
-    $this
-      ->safe_fill($row)
-      ->save();
+    $this->safe_fill($param);
+    return $this->save($msg);
   }
 
   public function remove()
@@ -16,9 +15,13 @@ class Api extends Model
 
   }
 
-  public function read()
+  public function read($param = [], &$msg)
   {
-
+    $this
+      ->limit(15)
+      ->order_by('id')
+      ->get();
+    return $this->get_date();
   }
 
   public function change()

@@ -2,10 +2,51 @@
 require_once("../util/helper.php");
 import('api/Cat');
 import('api/Product');
+import('api/User');
 
-$cat = new Cat();
+init();
 
-$product = new Product();
+function init()
+{
+  parse_uri();
+}
+
+function parse_uri()
+{
+  $uri = explode('?', $_SERVER['REQUEST_URI'])[0];
+  $uri = trim($uri, '/');
+  $arr = explode('/', $uri);
+  $param = array_merge($_GET, $_POST);
+
+  dd($arr);
+
+  switch($arr[0]){
+    case 'api':
+      $klass = $arr[1];
+      $method = $arr[2];
+      $msg = [];
+      $r = (new $klass)->$method($param, $msg);
+      if ($r === false) {
+        echo json(e($msg));
+        die();
+      }
+      echo json(s($r));
+      die();
+      break;
+    case 'admin':
+      import('view/admin/' . $arr[1]);
+      die();
+      break;
+    default:
+      break;
+  }
+}
+
+
+
+// $cat = new Cat();
+
+// $product = new Product();
 
 // $r = $cat->safe_fill(['title' => 'a'])
 //             ->save($msg);
