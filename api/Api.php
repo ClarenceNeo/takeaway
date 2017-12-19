@@ -17,11 +17,10 @@ class Api extends Model
 
   public function read($param = [], &$msg)
   {
-    $this
+    return $this
       ->limit(15)
       ->order_by('id')
       ->get();
-    return $this->get_date();
   }
 
   public function change()

@@ -185,9 +185,8 @@ class Db
     $this->sql = "SELECT $this->sql_select from $this->table $this->sql_where $this->sql_order_by $this->sql_limit";
     // dd($this->sql);
     $this->execute();
-    $data = $this->get_data();
     $this->init_sql();
-    return $data;
+    return $this->get_data();
   }
 
   // sql 语句准备与执行

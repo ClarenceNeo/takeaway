@@ -52,3 +52,8 @@ function dd()
   die();
 }
 
+function json_die($data) {
+  echo json($data);
+  die();
+}
+

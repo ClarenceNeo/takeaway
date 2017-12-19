@@ -18,20 +18,21 @@ function parse_uri()
   $arr = explode('/', $uri);
   $param = array_merge($_GET, $_POST);
 
-  dd($arr);
+  // dd($arr);
 
   switch($arr[0]){
     case 'api':
       $klass = $arr[1];
       $method = $arr[2];
       $msg = [];
+
+      if ( ! has_permission_to($klass, $method))
+        json_die(e('PERMISSION_DENIED'));
       $r = (new $klass)->$method($param, $msg);
       if ($r === false) {
-        echo json(e($msg));
-        die();
+        json_die(e($msg));
       }
-      echo json(s($r));
-      die();
+      json_die(s($r));
       break;
     case 'admin':
       import('view/admin/' . $arr[1]);
@@ -42,57 +43,49 @@ function parse_uri()
   }
 }
 
+function has_permission_to($model, $action){
+  $public = [
+    'user' => ['signup', 'login', 'logout','is_logged_in'],
+    'product' => ['read'],
+  ];
+  $private = [
+    'product' => [
+      'read' => ['user', 'admin'],
+      'add'  => ['admin'],
+      'remove' => ['admin'],
+      'update' => ['admin'],
+      'test' => ['admin']
+    ],
+    'cat'     => [
+      'read' => ['user', 'admin', 'hr'],
+      'add' => ['admin'],
+      'remove' => ['admin'],
+      'update' => ['admin']
+    ],
+    'suite' => [
+      'read' => ['user', 'admin', 'hr'],
+      'add' => ['admin']
+    ]
+  ];
 
+  if ( ! key_exists($model, $private) && ! key_exists($model, $public))
+    return false;
 
-// $cat = new Cat();
+  $public_model = @$public[$model];
+  if($public_model && in_array($action, $public_model)){
+    return true;
+  }
 
-// $product = new Product();
+  $action_arr = $private[$model];
+  if ( ! $action_arr || ! key_exists($action, $action_arr))
+    return false;
 
-// $r = $cat->safe_fill(['title' => 'a'])
-//             ->save($msg);
-// dd($r, $msg);
+  $permission_arr = $action_arr[$action];
 
-// $r = $product->safe_fill(['title' => '12234', 'price' => 3233])
-//             ->save($msg);
-// dd($r, $msg);
+  $user_permission = @$_SESSION['user']['permission'];
 
-// $cat ->change(['title'=>'b','id'=>2]);
-// $r = $cat->add(['title'=>'c']);
+  if ( ! in_array($user_permission, $permission_arr))
+    return false;
 
-// dd($r);
-// $data = $db
-//   ->like('username', 'whh')
-//   ->or_like('password', 200)
-//   // ->where([
-//   //  'a'        => 1,
-//   //  'username' => 'whh',
-//   // ])
-//   ->limit(10)
-//   ->select(['id', 'username', 'a', 'b'])
-//   ->order_by('id', 'desc')
-//   ->get();
-
-// $r = $db
-//     ->insert([
-//       'username' => 'lsd',
-//       'password' => '123'
-//     ]);
-
-// $r = $db
-//     ->where('id', 13)
-//     ->update([
-//       'username' => 'hhh',
-//       'password' => '555'
-//     ]);
-
-// $r = $db
-//     ->where('id', 23)
-//     ->delete();
-
-// $r = $db
-//     ->get();
-// $r = $db
-//   ->where('id', 2)
-//   ->delete();
-
-// var_dump($r);
+  return true;
+}
