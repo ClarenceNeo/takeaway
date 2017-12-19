@@ -51,6 +51,7 @@ function parse_uri()
       import('view/public/signup');
       break;
     default:
+      echo '找不到页面';
       break;
   }
 }

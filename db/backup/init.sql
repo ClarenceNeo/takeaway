@@ -39,3 +39,8 @@ create table `order` (
 foreign key fk_order_user_id(user_id)
 REFERENCES user(id)
 );
+
+
+mysqldump -uroot -p takeaway > /Users/Clarence/GitHub/Project/002-takeaway/db/backup/$(date +%s).sql;
+
+alter table user add column (premission varchar(24) not null default 'user');
