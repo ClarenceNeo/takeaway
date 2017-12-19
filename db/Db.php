@@ -249,5 +249,11 @@ class Db
     $this->limit(1);
     return (bool) $this->get();
   }
+
+  public function first()
+  {
+    $this->limit(1);
+    return @$this->get()[0];
+  }
 }
 

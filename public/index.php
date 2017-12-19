@@ -8,6 +8,7 @@ init();
 
 function init()
 {
+  session_start();
   parse_uri();
 }
 
@@ -21,6 +22,10 @@ function parse_uri()
   // dd($arr);
 
   switch($arr[0]){
+    case '':
+      import('view/public/home');
+      echo @$_SESSION['user']['username'];
+      break;
     case 'api':
       $klass = $arr[1];
       $method = $arr[2];
@@ -29,6 +34,7 @@ function parse_uri()
       if ( ! has_permission_to($klass, $method))
         json_die(e('PERMISSION_DENIED'));
       $r = (new $klass)->$method($param, $msg);
+      // dd($r);
       if ($r === false) {
         json_die(e($msg));
       }
@@ -37,6 +43,12 @@ function parse_uri()
     case 'admin':
       import('view/admin/' . $arr[1]);
       die();
+      break;
+    case 'login':
+      import('view/public/login');
+      break;
+    case 'signup':
+      import('view/public/signup');
       break;
     default:
       break;
@@ -47,6 +59,7 @@ function has_permission_to($model, $action){
   $public = [
     'user' => ['signup', 'login', 'logout','is_logged_in'],
     'product' => ['read'],
+    'cat' => ['read']
   ];
   $private = [
     'product' => [

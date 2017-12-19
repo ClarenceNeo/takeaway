@@ -56,6 +56,10 @@ class Model extends Db
 
     $is_update = (bool) $id = @$filled['id'];
 
+    if (method_exists($this, 'before_save')) {
+      $this->before_save();
+    }
+
     if ($is_update) {
       $this->where('id', $id);
 
@@ -65,13 +69,20 @@ class Model extends Db
       }
       // dd($filled);
       $this->where('id', $filled['id']);
-      return $this->update($filled);
+      $r = $this->update($filled);
     } else {
       if ($this->insert($filled)) {
-        return $this->last_id();
+        $r = $this->last_id();
+      }else{
+        return false;
       }
-      return false;
     }
+
+    if (method_exists($this, 'after_save')) {
+      $this->after_save();
+    }
+
+    return $r;
   }
 
 }
