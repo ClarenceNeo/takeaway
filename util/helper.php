@@ -57,3 +57,20 @@ function json_die($data) {
   die();
 }
 
+function logged_in()
+{
+  return (bool) @$_SESSION['user']['id'];
+}
+
+function his($key)
+{
+  if (!logged_in()) {
+    return null;
+  }
+
+  return @$_SESSION['user'][$key];
+}
+
+function redirect($url){
+  header("Location: $url");
+}

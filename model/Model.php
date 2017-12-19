@@ -85,4 +85,10 @@ class Model extends Db
     return $r;
   }
 
+  public function page($num, $limit = 15)
+  {
+    $this->limit($limit, ($num - 1) * $limit);
+    return $this;
+  }
+
 }

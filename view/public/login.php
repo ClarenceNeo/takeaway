@@ -13,8 +13,7 @@
     <input type="password" name="password" placeholder="密码">
     <button type="submit">提交</button>
   </form>
-  <script src="js/lib/jquery.js"></script>
-  <script src="js/util/foundation.js"></script>
+  <?php import('view/component/js') ?>
   <script src="js/public/login.js"></script>
 </body>
 </html>

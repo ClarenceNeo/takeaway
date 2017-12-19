@@ -19,7 +19,7 @@ class User extends Api
 
     $user = $this
       ->where('username', $username)
-      ->where('password', $this->hash_password($password))
+      ->where('password', self::hash_password($password))
       ->first();
     if ( ! $user) {
       $msg = 'invalid:username||password';
@@ -47,15 +47,16 @@ class User extends Api
     if (!$password = &$this->filled['password']) {
       return;
     }
-    $password = $this->hash_password($password);
+    $password = self::hash_password($password);
   }
 
-  public function hash_password($password)
+  public static function hash_password($password)
   {
     return md5(md5($password) . '6rysjhhrhl');
   }
 
-  public function logout(){
+  public static function logout(){
     unset($_SESSION['user']);
+    return true;
   }
 }

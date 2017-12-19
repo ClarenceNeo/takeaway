@@ -40,15 +40,21 @@ function parse_uri()
       }
       json_die(s($r));
       break;
-    case 'admin':
-      import('view/admin/' . $arr[1]);
-      die();
+    case 'cat':
+      import('view/admin/cat');
+      break;
+    case 'product':
+      import('view/admin/product');
       break;
     case 'login':
       import('view/public/login');
       break;
     case 'signup':
       import('view/public/signup');
+      break;
+    case 'logout':
+      User::logout();
+      redirect('/login');
       break;
     default:
       echo '找不到页面';

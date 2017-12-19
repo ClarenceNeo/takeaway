@@ -11,15 +11,21 @@ class Api extends Model
     return $this->save($msg);
   }
 
-  public function remove()
+  public function remove($param, &$msg)
   {
+    if (!$id = @$param['id']) {
+      $msg = 'required: id';
+      return false;
+    }
 
+    return $this->where('id', $id)->delete();
   }
 
   public function read($param = [], &$msg)
   {
+    $page = @$param['page'] ?: 1;
     return $this
-      ->limit(15)
+      ->page($page)
       ->order_by('id')
       ->get();
   }
