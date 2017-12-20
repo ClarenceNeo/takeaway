@@ -26,7 +26,15 @@
 
     $.post('/api/' + this.name + '/remove', {id: id})
       .then(function(){
-        this.after_remove();
+        if (this.after_remove())
+          this.after_remove();
+      })
+  }
+
+  Model.prototype.add_update = function (param) {
+    $.post('/api/' + this.name + '/add', param)
+      .then(function (r) {
+        console.log(r);
       })
   }
 })();

@@ -24,7 +24,6 @@ function parse_uri()
   switch($arr[0]){
     case '':
       import('view/public/home');
-      echo @$_SESSION['user']['username'];
       break;
     case 'api':
       $klass = $arr[1];
