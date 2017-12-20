@@ -4,7 +4,7 @@ import('model/Model');
 
 class Api extends Model
 {
-  public function add($param, &$msg)
+  public function add_or_change($param, &$msg)
   {
     // dd($param);
     $this->safe_fill($param);
@@ -28,10 +28,5 @@ class Api extends Model
       ->page($page)
       ->order_by('id')
       ->get();
-  }
-
-  public function change()
-  {
-
   }
 }

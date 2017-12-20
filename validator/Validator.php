@@ -34,7 +34,7 @@ class Validator extends Db
     if (is_string($rules)) {
       $rules = $this->parse_rules($rules);
     }
-    foreach($rules as $type => $param){
+    foreach((array) $rules as $type => $param){
       $method = 'valid_' . $type;
       // var_dump($method);
       $r = $this->$method($val, $param);

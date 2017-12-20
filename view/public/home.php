@@ -12,8 +12,8 @@
   <?php if (logged_in()): ?>
     <a href="/logout">登出</a>
   <?php else: ?>
-    <a href="/login">登录</a>
-    <a href="/signup">注册</a>
+    <a href="/user/login">登录</a>
+    <a href="/user/signup">注册</a>
   <?php endif; ?>
 </div>
 <h1>Home</h1>

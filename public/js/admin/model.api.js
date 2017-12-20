@@ -10,11 +10,12 @@
   }
 
   Model.prototype.read = function () {
+    var me = this;
     $.post('/api/' + this.name + '/read', {page: this.page})
       .then(function(r){
-        this.list = r.data;
-        if (this.after_read) {
-          this.after_read();
+        me.list = r.data;
+        if (me.after_read) {
+          me.after_read();
         }
       })
   }
@@ -31,8 +32,8 @@
       })
   }
 
-  Model.prototype.add_update = function (param) {
-    $.post('/api/' + this.name + '/add', param)
+  Model.prototype.add_change = function (param) {
+    $.post('/api/' + this.name + '/add_or_change', param)
       .then(function (r) {
         console.log(r);
       })

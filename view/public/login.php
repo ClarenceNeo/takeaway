@@ -14,6 +14,6 @@
     <button type="submit">提交</button>
   </form>
   <?php import('view/component/js') ?>
-  <script src="js/public/login.js"></script>
+  <script src="/js/public/login.js"></script>
 </body>
 </html>

@@ -39,21 +39,17 @@ function parse_uri()
       }
       json_die(s($r));
       break;
-    case 'cat':
-      import('view/admin/cat');
+    case 'admin':
+      import('view/admin/' . $arr[1]);
+      die();
       break;
-    case 'product':
-      import('view/admin/product');
-      break;
-    case 'login':
-      import('view/public/login');
-      break;
-    case 'signup':
-      import('view/public/signup');
+    case 'user':
+      import('view/public/' . $arr[1]);
+      die();
       break;
     case 'logout':
       User::logout();
-      redirect('/login');
+      redirect('/user/login');
       break;
     default:
       echo '找不到页面';
@@ -73,13 +69,15 @@ function has_permission_to($model, $action){
       'add'  => ['admin'],
       'remove' => ['admin'],
       'update' => ['admin'],
-      'test' => ['admin']
+      'test' => ['admin'],
+      'add_or_change' => ['admin']
     ],
     'cat'     => [
       'read' => ['user', 'admin', 'hr'],
       'add' => ['admin'],
       'remove' => ['admin'],
-      'update' => ['admin']
+      'update' => ['admin'],
+      'add_or_change' => ['admin']
     ],
     'suite' => [
       'read' => ['user', 'admin', 'hr'],

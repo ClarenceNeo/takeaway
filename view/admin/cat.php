@@ -8,7 +8,16 @@
 </head>
 <body>
   <form id="form"></form>
-  <div id="list"></div>
+  <div id="list">
+    <table>
+      <thead>
+        <th>id</th>
+        <th>标题</th>
+        <th>操作</th>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
   <?php import('view/component/js') ?>
   <?php import('view/component/admin_js') ?>
   <script src="/js/admin/cat.js"></script>
