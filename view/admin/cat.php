@@ -7,7 +7,8 @@
   <title>分类管理</title>
 </head>
 <body>
-  <form id="form"></form>
+  <form id="form">
+  </form>
   <div id="list">
     <table>
       <thead>

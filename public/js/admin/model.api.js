@@ -21,14 +21,15 @@
   }
 
   Model.prototype.remove = function (id) {
+    var me = this;
     if (!confirm('确定删除?')) {
       return;
     }
 
     $.post('/api/' + this.name + '/remove', {id: id})
       .then(function(){
-        if (this.after_remove())
-          this.after_remove();
+        if (me.after_remove)
+          me.after_remove();
       })
   }
 
