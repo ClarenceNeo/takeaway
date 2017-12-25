@@ -2,7 +2,7 @@
   'use strict';
   window.Ui = Ui;
 
-  function Ui(name, form_selector, table_selector){
+  function Ui(name, table_selector, form_selector){
     Model.call(this, name);
     this.el_form = document.querySelector(form_selector);
     this.el_table = document.querySelector(table_selector);

@@ -1,7 +1,7 @@
 ; (function () {
   'use strict';
 
-  var product = new Ui('product', '#form', '#list tbody');
+  var product = new Ui('product', '#list tbody', '#form');
   product.form_tpl_maker = function () {
     return `
       <label><input name="id" type="text" hidden></label>

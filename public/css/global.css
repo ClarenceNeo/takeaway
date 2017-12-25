@@ -1,0 +1,117 @@
+* {
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+.col {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
+}
+
+.row {
+  font-size: 0;
+}
+
+.col-1 {
+  width: 8.3333333%;
+}
+
+.col-2 {
+  width: 16.6666666%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.3333333%;
+}
+
+.col-5 {
+  width: 41.6666666%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.3333333%;
+}
+
+.col-8 {
+  width: 66.6666666%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.3333333%;
+}
+
+.col-11 {
+  width: 91.6666666%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.tar {
+  text-align: right;
+}
+
+.tal {
+  text-align: left;
+}
+
+.tac {
+  text-align: center;
+}
+
+hr { color:#bbb; background-color:#bbb; height:1px; border:0; }
+
+body {
+  font-family: "Gill Sans WGL W01 Light";
+  font-size: 12px;
+  color:#000;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+hr {
+  background-color: #eee;
+}
+
+img {
+  max-width: 100%; /* 最大宽度撑满母元素 */
+  display: block; /* 去除因baseline产生的下方间隙 */
+}
+
+a:hover {
+  text-decoration:none;
+  border-bottom: none;
+}
+
+input,button,select,textarea{outline:none}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.clearfix:after{content:".";display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;}
+.clearfix{zoom: 1;}
+

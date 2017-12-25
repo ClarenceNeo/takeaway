@@ -1,7 +1,7 @@
 ;(function(){
   'use strict';
 
-  var cat = new Ui('cat', '#form', '#list tbody');
+  var cat = new Ui('cat', '#list tbody', '#form');
   cat.table_tpl_maker = function (item) {
     return `
       <td>${item.id}</td>

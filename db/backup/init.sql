@@ -44,3 +44,6 @@ REFERENCES user(id)
 mysqldump -uroot -p takeaway > /Users/Clarence/GitHub/Project/002-takeaway/db/backup/$(date +%s).sql;
 
 alter table user add column (premission varchar(24) not null default 'user');
+
+alter table product add column (delivery int unsigned);
+alter table product add column (delivery_tiem int unsigned);
