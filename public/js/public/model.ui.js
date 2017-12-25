@@ -6,7 +6,7 @@
     Model.call(this, name);
     this.el_list = document.querySelector(list_selector);
     this.list_tpl_maker = null;
-    this.list_tpl_class = list_class;
+    // this.list_tpl_class = list_class;
     this.after_read = function () {
       this.render();
     }

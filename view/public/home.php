@@ -53,7 +53,7 @@
   </div>
 </div>
 <div class="place main">
-  <div class="box main row product">
+  <div id="product-list" class="box main row product">
     <div class="item col col-4 row">
       <div class="col col-4">
         <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>

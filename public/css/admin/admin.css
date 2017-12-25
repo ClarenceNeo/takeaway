@@ -1,0 +1,66 @@
+body {
+  font-family: "Gill Sans WGL W01 Light";
+  font-size: 14px;
+  color:#000;
+}
+.nav {
+  background: #288BDD;
+  font-size: 0;
+  padding-left: 10px;
+}
+
+.nav-item {
+  font-size: 16px;
+  color: #fff;
+  line-height: 50px;
+  padding: 0 15px;
+  text-align: center;
+  display: inline-block;
+}
+
+.nav-item:hover {
+  background: #1979CE;
+}
+
+.form {
+  display: block;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.form-item {
+  display: block;
+  padding: 5px 0;
+}
+
+.form-name, .form-input {
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+.form-btn {
+  font-size: 16px;
+  line-height: 1.5em;
+  padding: 5px 10px;
+  margin-left: 40px;
+  background: #308CDA;
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid #308CDA;
+}
+
+#list {
+  padding: 0 23%;
+}
+
+#list th {
+  font-size: 16px;
+}
+
+#list td, #list th {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 5px 10px;
+}
