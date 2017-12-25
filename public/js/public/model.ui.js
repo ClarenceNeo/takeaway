@@ -2,11 +2,18 @@
   'use strict';
   window.Ui = Ui;
 
+  DOMTokenList.prototype.adds = function (tokens) {
+    tokens.split(" ").forEach(function (token) {
+      this.add(token);
+    }.bind(this));
+    return this;
+  };
+
   function Ui(name, list_selector, list_class) {
     Model.call(this, name);
     this.el_list = document.querySelector(list_selector);
     this.list_tpl_maker = null;
-    // this.list_tpl_class = list_class;
+    this.list_tpl_class = list_class;
     this.after_read = function () {
       this.render();
     }
@@ -30,7 +37,11 @@
     me.el_list.innerHTML = '';
     me.list_each(function (item) {
       var el = document.createElement('div');
-      el.classList.add('item');
+      if (me.list_tpl_class) {
+        el.classList.adds(me.list_tpl_class)
+      }else{
+        el.classList.add('item');
+      }
       el.innerHTML = me.list_tpl_maker(item);
       me.el_list.appendChild(el);
     });
