@@ -29,4 +29,14 @@
   }
 
   product.read();
+
+  var cart = new Model('cart');
+
+  product.after_render = function(el,item) {
+    var cart_btn = el.querySelector(".product-cart");
+    var id = item.id;
+    cart_btn.addEventListener('click',function() {
+      cart.add_cart(id);
+    })
+  }
 })();

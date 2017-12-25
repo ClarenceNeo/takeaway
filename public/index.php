@@ -3,6 +3,7 @@ require_once("../util/helper.php");
 import('api/Cat');
 import('api/Product');
 import('api/User');
+import('api/Cart');
 
 init();
 
@@ -29,6 +30,8 @@ function parse_uri()
       $klass = $arr[1];
       $method = $arr[2];
       $msg = [];
+
+      // dd($klass,$method);  
 
       if ( ! has_permission_to($klass, $method))
         json_die(e('PERMISSION_DENIED'));
@@ -79,9 +82,8 @@ function has_permission_to($model, $action){
       'update' => ['admin'],
       'add_or_change' => ['admin']
     ],
-    'suite' => [
-      'read' => ['user', 'admin', 'hr'],
-      'add' => ['admin']
+    'cart' => [
+      'add_cart' => ['user', 'admin'],
     ]
   ];
 

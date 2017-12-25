@@ -19,5 +19,12 @@
         }
       })
   }
+
+  Model.prototype.add_cart = function(id) {
+    $.post('/api/' + this.name + '/add_cart', {product_id: id})
+      .then(function(r){
+        console.log(r);
+      })
+  }
   
 })();

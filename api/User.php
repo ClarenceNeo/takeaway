@@ -39,7 +39,7 @@ class User extends Api
       return false;
     }
 
-    return $this->add($param, $msg);
+    return $this->add_or_change($param, $msg);
   }
 
   public function before_save()

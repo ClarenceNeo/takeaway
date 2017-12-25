@@ -43,6 +43,10 @@
         el.classList.add('item');
       }
       el.innerHTML = me.list_tpl_maker(item);
+
+      if (me.after_render) {
+        me.after_render(el,item);
+      }
       me.el_list.appendChild(el);
     });
   }
