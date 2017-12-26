@@ -32,11 +32,30 @@
 
   var cart = new Model('cart');
 
+  cart.read_cart();
+
+  cart.after_read_cart = function() {
+    if (this.count) {
+      render_cart_count(this.count);
+      console.log(this.list);
+    }
+  }
+
   product.after_render = function(el,item) {
     var cart_btn = el.querySelector(".product-cart");
     var id = item.id;
     cart_btn.addEventListener('click',function() {
       cart.add_cart(id);
+      cart.read_cart();
     })
   }
+
+  function render_cart_count(count){
+    var el = document.querySelector('.toolbar-tab-middle');
+    var div = document.createElement('div');
+    div.classList.add('cart-count');
+    div.innerText = count;
+    el.appendChild(div);
+  }
+
 })();
