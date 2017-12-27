@@ -32,9 +32,12 @@
   }
 
   Model.prototype.reduce_cart = function(row) {
+    console.log(row);
     $.post('/api/' + this.name + '/reduce_cart', row)
       .then(function(r) {
-        console.log(r);
+        if (this.after_reduce_cart) {
+          this.after_reduce_cart();
+        }
       }.bind(this))
   }
 

@@ -35,10 +35,18 @@
   cart.read_cart();
 
   cart.after_read_cart = function() {
-    if (this.count) {
+    if (this.count != -1) {
       render_cart_count(this.count);
       render_cart_shopping(this.list);
     }
+  }
+
+  cart.after_add_cart = function() {
+    cart.read_cart();
+  }
+
+  cart.after_reduce_cart = function() {
+    cart.read_cart();
   }
 
   product.after_render = function(el,item) {
@@ -48,7 +56,6 @@
     // return;
     cart_btn.addEventListener('click',function() {
       cart.add_cart(id);
-      cart.read_cart();
     })
   }
 
@@ -80,11 +87,11 @@
       div.querySelector('#add-count').addEventListener('click', function() {
         // console.log(id);
         cart.add_cart(product_id);
-        cart.read_cart();
+        // cart.read_cart();
       })
       div.querySelector('#reduce-count').addEventListener('click', function() {
         cart.reduce_cart(item);
-        cart.read_cart();
+        // cart.read_cart();
       })
       el.appendChild(div);
     })

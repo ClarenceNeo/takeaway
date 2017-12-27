@@ -52,39 +52,16 @@
       <h4>已选商品</h4>
       <hr>
       <div class="sidebarcart-box">
-        <div class="sidebarcart-box-item">
-          <div class="title">酸辣土豆丝</div>
-          <div class="count">
-            <button>-</button>
-            <input type="text" value="1">
-            <button>+</button>
-          </div>
-          <div class="price">¥ 8.88</div>
-        </div>
-        <div class="sidebarcart-box-item">
-          <div class="title">酸辣土豆丝</div>
-          <div class="count">
-            <button>-</button>
-            <input type="text" value="1">
-            <button>+</button>
-          </div>
-          <div class="price">¥ 8.88</div>
-        </div>
-        <div class="sidebarcart-box-item">
-          <div class="title">酸辣土豆丝</div>
-          <div class="count">
-            <button>-</button>
-            <input type="text" value="1">
-            <button>+</button>
-          </div>
-          <div class="price">¥ 8.88</div>
-        </div>
       </div>
+    </div>
+    <div class="sidebarcart-summary">
+      <div>共 <span>0</span> 份，总计 ¥ <span>0</span></div>
+      <button>提交订单</button>
     </div>
   </div>
 </div>
 <div class="place clearfix">
-  <div class="item addr">当前位置：</div>
+  <!-- <div class="item addr">当前位置：</div> -->
   <div class="item search-box"><input class="search-bar" type="text" placeholder="搜索美食"></div>
 </div>
 <div class="place">

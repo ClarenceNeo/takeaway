@@ -61,6 +61,7 @@ class Cart extends Api
     $r = $this->select(['product.title','cart.product_id','product.price','cart.count','cart.user_id','cart.id'])
     ->join(['product','user'])
     ->where('user.id',27)
+    ->order_by('id')
     ->get();
     foreach ($r as $key => $value) {
       $count += $r[$key]['count'];
