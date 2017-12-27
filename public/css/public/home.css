@@ -1,12 +1,69 @@
-/* siderbar-tab */
-.siderbar-tab {
+/* siderbar */
+.siderbar {
   font-size: 14px;
   position: fixed;
   top:0;
-  right: 0;
+  right: -295px;
+  height: 100%;
+  transform: translate3d(0px, 0px, 0px);
+  transition: transform .3s ease-in-out;
+  background: #504D53;
+}
+
+.sidebar-tabs {
+  float: left;
   width: 35px;
   height: 100%;
-  background: #504D53;
+}
+
+.show-sidebar {
+  transform: translate3d(-295px, 0px, 0px);
+}
+
+.sidebar-content {
+  margin-left: 35px;
+  height: 100%;
+  width: 295px;
+  overflow: auto;
+  background-color: #e6e6e6;
+}
+
+.sidebarcart-caption {
+  background: #fff;
+  font-size: 16px;
+  color: #999;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.sidebarcart {
+  padding: 10px;
+  background-color: #fff;
+  border: solid #ddd;
+  border-width: 1px 0;
+  margin-bottom: 10px;
+  color: #999;
+}
+
+.sidebarcart h4 {
+  margin-left: 10px;
+}
+
+.sidebarcart-box-item {
+  padding-top: 5px;
+  margin-left: 5px;
+}
+
+.sidebarcart-box-item > * {
+  width: 30%;
+  text-align: center;
+  display: inline-block;
+}
+
+.sidebarcart-box-item .count input {
+  width: 1em;
+  max-width: 2em;
 }
 
 .toolbar-tab-middle {
@@ -15,12 +72,25 @@
   top: 25%;
 }
 
+.cart-count {
+  position: absolute;
+  background: red;
+  width: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 50%;
+  color: #fff;
+  left: -9px;
+  top: -3px;
+}
+
 .sidebar-btn {
   color: #ccc;
   display: inline-block;
   width: 100%;
   padding: 11px;
   line-height: 16px;
+  cursor: pointer;
 }
 
 .toolbar-cartbtn:hover {

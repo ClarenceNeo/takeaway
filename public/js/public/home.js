@@ -37,13 +37,15 @@
   cart.after_read_cart = function() {
     if (this.count) {
       render_cart_count(this.count);
-      console.log(this.list);
+      render_cart_shopping(this.list);
     }
   }
 
   product.after_render = function(el,item) {
     var cart_btn = el.querySelector(".product-cart");
     var id = item.id;
+    console.log(id);
+    // return;
     cart_btn.addEventListener('click',function() {
       cart.add_cart(id);
       cart.read_cart();
@@ -51,11 +53,51 @@
   }
 
   function render_cart_count(count){
-    var el = document.querySelector('.toolbar-tab-middle');
+    var el = document.querySelector('.cart-count-box');
+    el.innerHTML = '';
     var div = document.createElement('div');
     div.classList.add('cart-count');
     div.innerText = count;
     el.appendChild(div);
   }
+
+  function render_cart_shopping(list){
+    var el = document.querySelector('.sidebarcart-box');
+    el.innerHTML = '';
+    list.forEach(function(item) {
+      var div = document.createElement('div');
+      div.classList.add('sidebarcart-box-item');
+      div.innerHTML = `
+        <div class="title">${item.title}</div>
+        <div class="count">
+          <button id="reduce-count">-</button>
+          <input type="text" value="${item.count}">
+          <button id="add-count">+</button>
+        </div>
+        <div class="price">¥ ${item.price * item.count}</div>
+      `;
+      var id = item.product_id;
+      div.querySelector('#add-count').addEventListener('click', function() {
+        // console.log(id);
+        cart.add_cart(id);
+        cart.read_cart();
+      })
+      el.appendChild(div);
+    })
+  }
+
+  var cartBtn = document.querySelector('.cart-btn');
+  var sidebar = document.querySelector('.siderbar');
+  var isClicked = true;
+  cartBtn.addEventListener('click', function() {
+    if (isClicked) {
+      sidebar.classList.add('show-sidebar');
+      isClicked = false;
+    }else{
+      sidebar.classList.remove('show-sidebar');
+      isClicked = true;
+    }
+    
+  })
 
 })();

@@ -34,8 +34,12 @@ class Cart extends Api
     $data = [];
     $count = 0;
     $user_id = $_SESSION['user']['id'];
-    $r = $this->where('user_id',$user_id)
-          ->get();
+    // $r = $this->where('user_id',$user_id)
+    //       ->get();
+    $r = $this->select(['product.title','cart.product_id','product.price','cart.count','cart.user_id'])
+    ->join(['product','user'])
+    ->where('user.id',27)
+    ->get();
     foreach ($r as $key => $value) {
       $count += $r[$key]['count'];
     }
@@ -44,4 +48,12 @@ class Cart extends Api
     $data['count'] = $count;
     return $data;
   }
+
+  // public function read_shopping_cart()
+  // {
+  //   return $this->select(['product.title','cart.product_id','product.price','cart.count','cart.user_id'])
+  //   ->join(['product','user'])
+  //   ->where('user.id',27)
+  //   ->get();
+  // }
 }

@@ -21,6 +21,8 @@ class Db
   public $sql_order_by = '';
   public $sql_limit = '';
 
+  public $sql_join = '';
+
   public $pdo_stmt;
 
   public function __construct($table)
@@ -128,6 +130,17 @@ class Db
     return $this;
   }
 
+  public function join()
+  {
+    $args = func_get_args();
+    // dd($args);
+    foreach ($args[0] as $col) {
+      $this->sql_join .= ' left join ' . $col . ' on ' . $this->table . '.' . $col . '_id' . ' = ' . $col . '.id';
+    }
+    // dd($this->sql_join);
+    return $this;
+  }
+
   public function find()
   {
   }
@@ -182,7 +195,7 @@ class Db
       $this->sql_where = trim($this->sql_where, ' AND');
     }
 
-    $this->sql = "SELECT $this->sql_select from $this->table $this->sql_where $this->sql_order_by $this->sql_limit";
+    $this->sql = "SELECT $this->sql_select from $this->table $this->sql_join $this->sql_where $this->sql_order_by $this->sql_limit";
     // dd($this->sql);
     $this->execute();
     $this->init_sql();
@@ -216,6 +229,7 @@ class Db
     $this->sql_update =
     $this->sql_where =
     $this->sql_order_by =
+    $this->sql_join =
     $this->sql_limit = '';
     $this->where_count = 0;
     $this->where_relation = 'AND';

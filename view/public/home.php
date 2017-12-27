@@ -33,12 +33,54 @@
     <a class="item user menu" href="/user/signup">注册</a>
   <?php endif; ?>
 </div>
-<div class="siderbar-tab">
-  <div class="toolbar-tab-middle">
-    <a href="" class="toolbar-cartbtn sidebar-btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i>购物车</a>
+<div class="siderbar">
+  <div class="sidebar-tabs">
+    <div class="toolbar-tab-middle">
+      <div class="cart-count-box"></div>
+      <div class="toolbar-cartbtn sidebar-btn cart-btn">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        购物车
+      </div>
+    </div>
+    <div class="toolbar-tab-bottom">
+      <a href="javascript:" class="sidebar-btn-backtop sidebar-btn"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></a>
+    </div>
   </div>
-  <div class="toolbar-tab-bottom">
-    <a href="javascript:" class="sidebar-btn-backtop sidebar-btn"><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></a>
+  <div class="sidebar-content">
+    <div class="sidebarcart-caption">购物车</div>
+    <div class="sidebarcart">
+      <h4>已选商品</h4>
+      <hr>
+      <div class="sidebarcart-box">
+        <div class="sidebarcart-box-item">
+          <div class="title">酸辣土豆丝</div>
+          <div class="count">
+            <button>-</button>
+            <input type="text" value="1">
+            <button>+</button>
+          </div>
+          <div class="price">¥ 8.88</div>
+        </div>
+        <div class="sidebarcart-box-item">
+          <div class="title">酸辣土豆丝</div>
+          <div class="count">
+            <button>-</button>
+            <input type="text" value="1">
+            <button>+</button>
+          </div>
+          <div class="price">¥ 8.88</div>
+        </div>
+        <div class="sidebarcart-box-item">
+          <div class="title">酸辣土豆丝</div>
+          <div class="count">
+            <button>-</button>
+            <input type="text" value="1">
+            <button>+</button>
+          </div>
+          <div class="price">¥ 8.88</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="place clearfix">
