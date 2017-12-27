@@ -52,8 +52,6 @@
   product.after_render = function(el,item) {
     var cart_btn = el.querySelector(".product-cart");
     var id = item.id;
-    // console.log(id);
-    // return;
     cart_btn.addEventListener('click',function() {
       cart.add_cart(id);
     })
@@ -61,17 +59,23 @@
 
   function render_cart_count(count){
     var el = document.querySelector('.cart-count-box');
+    var el_sidebar = document.querySelector('.sidebarcart-summary-count');
     el.innerHTML = '';
     var div = document.createElement('div');
     div.classList.add('cart-count');
     div.innerText = count;
+    el_sidebar.innerText = count;
     el.appendChild(div);
   }
 
   function render_cart_shopping(list){
     var el = document.querySelector('.sidebarcart-box');
+    var el_amount = document.querySelector('.sidebarcart-summary-amount')
     el.innerHTML = '';
+    cart.amount = 0;
     list.forEach(function(item) {
+      var price = item.price * item.count;
+      cart.amount += price;
       var div = document.createElement('div');
       div.classList.add('sidebarcart-box-item');
       div.innerHTML = `
@@ -81,7 +85,7 @@
           <input type="text" value="${item.count}">
           <button id="add-count">+</button>
         </div>
-        <div class="price">¥ ${item.price * item.count}</div>
+        <div class="price red">¥ ${price}</div>
       `;
       var product_id = item.product_id;
       div.querySelector('#add-count').addEventListener('click', function() {
@@ -93,8 +97,11 @@
         cart.reduce_cart(item);
         // cart.read_cart();
       })
+      
       el.appendChild(div);
     })
+
+    el_amount.innerText = cart.amount;
   }
 
   var cartBtn = document.querySelector('.cart-btn');
@@ -109,6 +116,22 @@
       isClicked = true;
     }
     
+  })
+
+  var order = new Model('order');
+
+  var el_order = document.querySelector('#submit-order');
+
+  el_order.addEventListener('click', function(){
+    // console.log(cart.count, cart.amount, cart.list);
+    var order_form = {
+      'user_id' : cart.list[0].user_id,
+      'product' : cart.list
+    }
+
+    order.add(order_form);
+
+    // console.log(order_form);
   })
 
 })();

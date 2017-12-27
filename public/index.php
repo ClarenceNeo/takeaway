@@ -4,6 +4,7 @@ import('api/Cat');
 import('api/Product');
 import('api/User');
 import('api/Cart');
+import('api/Order');
 
 init();
 
@@ -86,6 +87,9 @@ function has_permission_to($model, $action){
     'cart' => [
       'add_cart' => ['user', 'admin'],
       'reduce_cart' => ['user', 'admin']
+    ],
+    'order' => [
+      'add' => ['admin', 'user'],
     ]
   ];
 

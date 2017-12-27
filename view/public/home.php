@@ -55,8 +55,8 @@
       </div>
     </div>
     <div class="sidebarcart-summary">
-      <div>共 <span>0</span> 份，总计 ¥ <span>0</span></div>
-      <button>提交订单</button>
+      <div>共 <span class="sidebarcart-summary-count red">0</span> 份，总计 <span class="red">¥</span> <span class="sidebarcart-summary-amount red">0</span></div>
+      <button id="submit-order">提交订单</button>
     </div>
   </div>
 </div>

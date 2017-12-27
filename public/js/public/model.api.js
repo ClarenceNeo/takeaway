@@ -21,6 +21,13 @@
       })
   }
 
+  Model.prototype.add = function (param) {
+    $.post('/api/' + this.name + '/add', param)
+      .then(function (r) {
+        console.log(r);
+      })
+  }
+
   Model.prototype.add_cart = function(id) {
     var me = this;
     $.post('/api/' + this.name + '/add_cart', {product_id: id})
@@ -32,7 +39,6 @@
   }
 
   Model.prototype.reduce_cart = function(row) {
-    console.log(row);
     $.post('/api/' + this.name + '/reduce_cart', row)
       .then(function(r) {
         if (this.after_reduce_cart) {

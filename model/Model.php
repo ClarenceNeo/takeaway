@@ -22,6 +22,8 @@ class Model extends Db
 
   public function safe_fill($row)
   {
+
+    // dd($row);
     $filtered = [];
 
     foreach ($this->all_column_name() as $col) {
@@ -30,7 +32,7 @@ class Model extends Db
         continue;
       $filtered[$col] = $val;
     }
-
+    // dd($filtered);
     $this->fill($filtered);
     return $this;
   }

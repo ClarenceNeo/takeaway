@@ -1,3 +1,7 @@
+.red {
+  color: red;
+}
+
 /* siderbar */
 .siderbar {
   font-size: 14px;
@@ -31,7 +35,7 @@
 .sidebarcart-caption {
   background: #fff;
   font-size: 16px;
-  color: #999;
+  color: #666;
   padding: 5px 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid #ddd;
@@ -43,7 +47,7 @@
   border: solid #ddd;
   border-width: 1px 0;
   margin-bottom: 10px;
-  color: #999;
+  color: #666;
 }
 
 .sidebarcart h4 {

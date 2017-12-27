@@ -158,7 +158,8 @@ class Db
     $this->sql_column = trim($this->sql_column, ',');
     $this->sql_value = trim($this->sql_value, ',');
 
-    $this->sql = "insert into $this->table ($this->sql_column) values ($this->sql_value)";
+    $this->sql = "insert into `$this->table` ($this->sql_column) values ($this->sql_value)";
+    // dd($this->sql);
     $r = $this->execute();
     $this->init_sql();
     return $r;
@@ -207,6 +208,7 @@ class Db
 
   public function prepare()
   {
+    // var_dump($this->sql);
     $this->pdo_stmt = $this->pdo->prepare($this->sql);
   }
 
@@ -238,9 +240,11 @@ class Db
 
   public function all_column()
   {
-    $this->sql = "desc $this->table";
+    $this->sql = "desc `$this->table`";
+    // dd($this->sql);
     $this->execute();
     $r = $this->get_data();
+    // dd($r);
     $this->init_sql();
     return $r;
   }
