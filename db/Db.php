@@ -167,6 +167,7 @@ class Db
   public function delete()
   {
     $this->sql = "DELETE FROM $this->table $this->sql_where";
+    // dd($this->sql);
     $r = $this->execute();
     $this->init_sql();
     return $r;

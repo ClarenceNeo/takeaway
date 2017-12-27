@@ -44,7 +44,7 @@
   product.after_render = function(el,item) {
     var cart_btn = el.querySelector(".product-cart");
     var id = item.id;
-    console.log(id);
+    // console.log(id);
     // return;
     cart_btn.addEventListener('click',function() {
       cart.add_cart(id);
@@ -76,10 +76,14 @@
         </div>
         <div class="price">¥ ${item.price * item.count}</div>
       `;
-      var id = item.product_id;
+      var product_id = item.product_id;
       div.querySelector('#add-count').addEventListener('click', function() {
         // console.log(id);
-        cart.add_cart(id);
+        cart.add_cart(product_id);
+        cart.read_cart();
+      })
+      div.querySelector('#reduce-count').addEventListener('click', function() {
+        cart.reduce_cart(item);
         cart.read_cart();
       })
       el.appendChild(div);

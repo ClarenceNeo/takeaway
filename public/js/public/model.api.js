@@ -31,6 +31,13 @@
       })
   }
 
+  Model.prototype.reduce_cart = function(row) {
+    $.post('/api/' + this.name + '/reduce_cart', row)
+      .then(function(r) {
+        console.log(r);
+      }.bind(this))
+  }
+
   Model.prototype.read_cart = function() {
     $.post('/api/' + this.name + '/read_cart')
       .then(function(r){

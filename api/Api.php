@@ -18,6 +18,8 @@ class Api extends Model
       return false;
     }
 
+    // dd($id);
+
     return $this->where('id', $id)->delete();
   }
 
