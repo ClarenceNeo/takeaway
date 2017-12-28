@@ -72,6 +72,13 @@ class Cart extends Api
     return $data;
   }
 
+  public function clear($param){
+    $id = @$param["user_id"];
+    // dd($id);
+    return $this->where('user_id',$id)
+      ->delete();
+  }
+
   // public function read_shopping_cart()
   // {
   //   return $this->select(['product.title','cart.product_id','product.price','cart.count','cart.user_id'])

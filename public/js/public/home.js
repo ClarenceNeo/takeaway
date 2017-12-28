@@ -120,9 +120,30 @@
 
   var order = new Model('order');
 
+  order.after_add = function () {
+    cart.clear();
+  }
+
+  cart.after_clear = function() {
+    cart.read_cart();
+  }
+
+  cart.clear = function () {
+    $.post('/api/' + this.name + '/clear', { user_id: cart.list[0].user_id })
+      .then(function (r) {
+        if (this.after_clear) {
+          this.after_clear();
+        }
+      }.bind(this))
+  }
+
   var el_order = document.querySelector('#submit-order');
 
   el_order.addEventListener('click', function(){
+    
+    if (!cart.list.length) {
+      return;
+    }
     // console.log(cart.count, cart.amount, cart.list);
     var order_form = {
       'user_id' : cart.list[0].user_id,

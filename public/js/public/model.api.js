@@ -24,8 +24,9 @@
   Model.prototype.add = function (param) {
     $.post('/api/' + this.name + '/add', param)
       .then(function (r) {
-        console.log(r);
-      })
+        if(this.after_add)
+          this.after_add();
+      }.bind(this))
   }
 
   Model.prototype.add_cart = function(id) {
