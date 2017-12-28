@@ -2,13 +2,6 @@
   'use strict';
   window.Ui = Ui;
 
-  DOMTokenList.prototype.adds = function (tokens) {
-    tokens.split(" ").forEach(function (token) {
-      this.add(token);
-    }.bind(this));
-    return this;
-  };
-
   function Ui(name, list_selector, list_class) {
     Model.call(this, name);
     this.el_list = document.querySelector(list_selector);
