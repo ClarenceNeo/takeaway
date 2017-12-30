@@ -1,6 +1,10 @@
 ;(function(){
   'use strict';
 
+  var cart = new Model('cart');
+
+  cart.read_cart();
+
   var cat = new Ui('cat', '#cat-list');
 
   cat.list_tpl_maker = function(item) {
@@ -30,10 +34,6 @@
 
   product.read();
 
-  var cart = new Model('cart');
-
-  cart.read_cart();
-
   cart.after_read_cart = function() {
     if (this.count != -1) {
       render_cart_count(this.count);
@@ -41,19 +41,32 @@
     }
   }
 
-  cart.after_add_cart = function() {
-    cart.read_cart();
-  }
+  // cart.after_add_cart = function() {
+  //   cart.read_cart();
+  // }
 
-  cart.after_reduce_cart = function() {
+  // cart.after_reduce_cart = function() {
+  //   cart.read_cart();
+  // }
+
+  cart.after_add_or_update = function() {
     cart.read_cart();
   }
 
   product.after_render = function(el,item) {
     var cart_btn = el.querySelector(".product-cart");
-    var id = item.id;
-    cart_btn.addEventListener('click',function() {
-      cart.add_cart(id);
+    var product = {
+      'product_id' : item.id,
+      'count' : 1
+    }
+    cart_btn.addEventListener('click', function () {
+      cart.list.forEach(function (i) {
+        if (i['product_id'] == item.id) {
+          product.count = i.count + 1;
+        }
+      })
+      console.log(product);
+      cart.add_or_update(product);
     })
   }
 
@@ -87,15 +100,26 @@
         </div>
         <div class="price red">¥ ${price}</div>
       `;
-      var product_id = item.product_id;
+      var product = {
+        'product_id': item.product_id,
+      }
       div.querySelector('#add-count').addEventListener('click', function() {
-        // console.log(id);
-        cart.add_cart(product_id);
-        // cart.read_cart();
+        cart.list.forEach(function (i) {
+          if (i['product_id'] == item.product_id) {
+            product.count = i.count + 1;
+          }
+        })
+        // console.log(product);
+        cart.add_or_update(product);
       })
       div.querySelector('#reduce-count').addEventListener('click', function() {
-        cart.reduce_cart(item);
-        // cart.read_cart();
+        cart.list.forEach(function (i) {
+          if (i['product_id'] == item.product_id) {
+            product.count = i.count - 1;
+          }
+        })
+        console.log(product);
+        cart.add_or_update(product);
       })
       
       el.appendChild(div);
@@ -132,52 +156,52 @@
     }
   })
 
-  var order = new Model('order');
+  // var order = new Model('order');
 
-  order.after_add = function () {
-    cart.clear();
-  }
+  // order.after_add = function () {
+  //   cart.clear();
+  // }
 
-  cart.after_clear = function() {
-    cart.read_cart();
-  }
+  // cart.after_clear = function() {
+  //   cart.read_cart();
+  // }
 
-  cart.clear = function () {
-    $.post('/api/' + this.name + '/clear', { user_id: cart.list[0].user_id })
-      .then(function (r) {
-        if (this.after_clear) {
-          this.after_clear();
-        }
-      }.bind(this))
-  }
+  // cart.clear = function () {
+  //   $.post('/api/' + this.name + '/clear', { user_id: cart.list[0].user_id })
+  //     .then(function (r) {
+  //       if (this.after_clear) {
+  //         this.after_clear();
+  //       }
+  //     }.bind(this))
+  // }
 
-  var el_order = document.querySelector('#submit-order');
+  // var el_order = document.querySelector('#submit-order');
 
-  el_order.addEventListener('click', function(){
+  // el_order.addEventListener('click', function(){
     
-    if (!cart.list.length) {
-      return;
-    }
-    // console.log(cart.count, cart.amount, cart.list);
-    var order_form = {
-      'user_id' : cart.list[0].user_id,
-      'product' : cart.list
-    }
+  //   if (!cart.list.length) {
+  //     return;
+  //   }
+  //   // console.log(cart.count, cart.amount, cart.list);
+  //   var order_form = {
+  //     'user_id' : cart.list[0].user_id,
+  //     'product' : cart.list
+  //   }
 
-    order.add(order_form);
+  //   order.add(order_form);
 
-    // console.log(order_form);
-  })
+  //   // console.log(order_form);
+  // })
 
-  $.post('/api/cart/add_or_update', {
-    product_id: 30,
-    count: 4
-  })
-  $.post('/api/order/checkout', {
-    list: [
-      {id: 29, count: 2},
-      {id: 30, count: 1}
-    ]
-  })
+  // $.post('/api/cart/add_or_update', {
+  //   product_id: 30,
+  //   count: 4
+  // })
+  // $.post('/api/order/checkout', {
+  //   list: [
+  //     {id: 29, count: 2},
+  //     {id: 30, count: 1}
+  //   ]
+  // })
 
 })();

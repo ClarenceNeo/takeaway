@@ -141,8 +141,11 @@ class Db
     return $this;
   }
 
-  public function find()
+  public function find($id)
   {
+    return @$this
+      ->where('id', $id)
+      ->get()[0];
   }
 
 

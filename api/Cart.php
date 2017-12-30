@@ -90,7 +90,7 @@ class Cart extends Api
   public function add_or_update($p, &$msg)
   {
 
-    dd($p);
+    // dd($p);
     $product_id = @$p['product_id'];
     $count = @$p['count'];
     if ( ! $product_id || ! $count || ! ($product = (new Product)->find($product_id))) {
