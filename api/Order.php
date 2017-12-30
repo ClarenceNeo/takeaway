@@ -17,7 +17,7 @@ class Order extends Api
 
   public function checkout($p, &$msg = null)
   {
-    dd($p);
+    // dd($p);
     //{list: [{id: 1, count: 3}, {id:3, count: 2, memo: "不加冰"}]}
     $product_ins = new Product();
     $list = @$p['list'];
@@ -27,7 +27,7 @@ class Order extends Api
     ];
     $row = [];
     foreach ($list as $product_info) {
-      $pid = @$product_info['id'];
+      $pid = @$product_info['product_id'];
       $count = $product_info['count'];
       if ( ! $pid || ! $count || ! ($product = $product_ins->find($pid))) {
         $msg = 'invalid:id&&count';

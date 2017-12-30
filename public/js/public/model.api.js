@@ -29,25 +29,6 @@
       }.bind(this))
   }
 
-  // Model.prototype.add_cart = function(id) {
-  //   var me = this;
-  //   $.post('/api/' + this.name + '/add_cart', {product_id: id})
-  //     .then(function(r){
-  //       if (me.after_add_cart) {
-  //         me.after_add_cart();
-  //       }
-  //     })
-  // }
-
-  // Model.prototype.reduce_cart = function(row) {
-  //   $.post('/api/' + this.name + '/reduce_cart', row)
-  //     .then(function(r) {
-  //       if (this.after_reduce_cart) {
-  //         this.after_reduce_cart();
-  //       }
-  //     }.bind(this))
-  // }
-
   Model.prototype.read_cart = function() {
     $.post('/api/' + this.name + '/read_cart')
       .then(function(r){
@@ -66,6 +47,15 @@
           this.after_add_or_update();
         }
       }.bind(this));
+  }
+
+  Model.prototype.checkout = function(row) {
+    $.post('/api/order/checkout', row)
+      .then(function(r) {
+        if (this.after_checkout) {
+          this.after_checkout();
+        }
+      }.bind(this))
   }
   
 })();
