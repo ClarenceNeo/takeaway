@@ -87,10 +87,12 @@ function has_permission_to($model, $action){
     'cart' => [
       'add_cart' => ['user', 'admin'],
       'reduce_cart' => ['user', 'admin'],
-      'clear' => ['admin', 'user']
+      'clear' => ['admin', 'user'],
+      'add_or_update' => ['user', 'admin']
     ],
     'order' => [
-      'add' => ['admin', 'user']
+      'add' => ['admin', 'user'],
+      'checkout' => ['admin', 'user']
     ]
   ];
 

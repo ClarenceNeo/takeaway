@@ -21,6 +21,7 @@
       <thead>
         <th>id</th>
         <th>标题</th>
+        <th>分类</th>
         <th>价格</th>
         <th>销量</th>
         <th>配送费</th>

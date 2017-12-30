@@ -27,11 +27,11 @@
 
   Ui.prototype = Object.create(Model.prototype);
   Ui.prototype.constructor = Ui;
-  Ui.prototype.list_each = function(callback) {
-    this.list.forEach(function(item, index) {
-      callback(item, index);
-    });
-  };
+  // Ui.prototype.list_each = function(callback) {
+  //   this.list.forEach(function(item, index) {
+  //     callback(item, index);
+  //   });
+  // };
 
   function render_table(me){
     me.el_table.innerHTML = '';

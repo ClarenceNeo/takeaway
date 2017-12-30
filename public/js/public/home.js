@@ -155,4 +155,15 @@
     // console.log(order_form);
   })
 
+  $.post('/api/cart/add_or_update', {
+    product_id: 30,
+    count: 4
+  })
+  $.post('/api/order/checkout', {
+    list: [
+      {id: 29, count: 2},
+      {id: 30, count: 1}
+    ]
+  })
+
 })();

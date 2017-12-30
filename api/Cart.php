@@ -86,4 +86,31 @@ class Cart extends Api
   //   ->where('user.id',27)
   //   ->get();
   // }
+
+  public function add_or_update($p, &$msg)
+  {
+
+    dd($p);
+    $product_id = @$p['product_id'];
+    $count = @$p['count'];
+    if ( ! $product_id || ! $count || ! ($product = (new Product)->find($product_id))) {
+      $msg = 'invalid:product_id||count';
+      return false;
+    }
+
+    $exist = $this
+      ->where('product_id', $product_id)
+      ->where('user_id', his('id'))
+      ->first();
+
+    if ($exist) {
+      $p = array_merge($exist, $p);
+      //$r = $this->update($merged);
+    }
+
+    $p['user_id'] = his('id');
+    $this->safe_fill($p);
+    return $this->save($msg);
+  }
+
 }
