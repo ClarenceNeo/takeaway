@@ -12,6 +12,7 @@
   transform: translate3d(0px, 0px, 0px);
   transition: transform .3s ease-in-out;
   background: #504D53;
+  z-index: 12;
 }
 
 .sidebar-tabs {
@@ -291,4 +292,18 @@
 
 .product-cart:active {
   background: #3679ce;
+}
+
+.musk {
+  position: absolute;
+  display: none;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  /* background: rgba(255,255,255,0.5); */
+}
+
+.show {
+  display: block;
 }

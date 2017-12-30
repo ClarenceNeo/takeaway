@@ -106,16 +106,30 @@
 
   var cartBtn = document.querySelector('.cart-btn');
   var sidebar = document.querySelector('.siderbar');
+  var musk = document.querySelector('.musk');
   var isClicked = true;
   cartBtn.addEventListener('click', function() {
     if (isClicked) {
       sidebar.classList.add('show-sidebar');
+      musk.classList.add('show');
       isClicked = false;
     }else{
       sidebar.classList.remove('show-sidebar');
+      musk.classList.remove('show');
       isClicked = true;
     }
-    
+  })
+
+  musk.addEventListener('click', function () {
+    if (isClicked) {
+      sidebar.classList.add('show-sidebar');
+      musk.classList.add('show');
+      isClicked = false;
+    } else {
+      sidebar.classList.remove('show-sidebar');
+      musk.classList.remove('show');
+      isClicked = true;
+    }
   })
 
   var order = new Model('order');

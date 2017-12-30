@@ -60,6 +60,7 @@
     </div>
   </div>
 </div>
+<div class="musk"></div>
 <div class="place clearfix">
   <!-- <div class="item addr">当前位置：</div> -->
   <div class="item search-box"><input class="search-bar" type="text" placeholder="搜索美食"></div>
