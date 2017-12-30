@@ -6,7 +6,7 @@ class Api extends Model
 {
   public function add_or_change($param, &$msg)
   {
-    // dd($param);
+    dd($param);
     $this->safe_fill($param);
     return $this->save($msg);
   }

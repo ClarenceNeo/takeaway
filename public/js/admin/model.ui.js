@@ -54,9 +54,10 @@
   function bind_form(me){
     me.el_form.addEventListener('submit', function(e){
       e.preventDefault();
-      var data = get_form_data(me.el_form);
-      clear_form(me.el_form);
-      me.add_change(data);
+      // var data = get_form_data(me.el_form);
+      me.row = this.get_data();
+      // clear_form(me.el_form);
+      me.add();
       me.read();
     });
   }

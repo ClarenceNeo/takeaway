@@ -24,7 +24,7 @@ function import($path)
 
 function root($path, $ext = 'php')
 {
-  return dirname(__FILE__) . '/../' . $path . '.' . $ext;
+  return dirname(__FILE__) . '/../' . $path . ($ext ? '.' . $ext : '');
 }
 
 function config($key)
@@ -73,4 +73,36 @@ function his($key)
 
 function redirect($url){
   header("Location: $url");
+}
+
+function move_uploaded($key, &$data = null)
+{
+  $file_type = [
+    'image/jpeg' => 'jpg',
+    'image/png'  => 'png',
+  ];
+
+  $file = @$_FILES[$key];
+
+  if ( ! $tmp = $file['tmp_name'])
+    return false;
+
+  // dd($file);
+  $old_name = $file['name'];
+  $file_name = uniqid() . '.' . rand(100, 999);
+  $mime = $file['type'];
+  $ext = $file_type[$mime];
+
+  $dest = root('public/upload', '') . "/$file_name.$ext";
+  if ($r = move_uploaded_file($tmp, $dest))
+    $data = [
+      'name'     => $file_name,
+      'ext'      => $ext,
+      'fullname' => "$file_name.$ext",
+      'mime'     => $mime,
+      'size'     => $file['size'],
+      'old_name' => $old_name,
+    ];
+
+  return $r;
 }

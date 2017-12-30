@@ -8,12 +8,16 @@
     return this;
   };
 
-  HTMLFormElement.prototype.get_data = function(){
+  HTMLFormElement.prototype.get_data = function () {
     var input_list = this.querySelectorAll('[name]');
-    var data = {};
+    var form_data = new FormData(this);
     input_list.forEach(function (input) {
-      data[input.name] = input.value;
+      if (input.type == 'file') {
+        var file = input.files[0];
+        form_data.append(input.name, file);
+      } else
+        form_data.append(input.name, input.value);
     });
-    return data;
-  }
+    return form_data;
+  };
 })();
