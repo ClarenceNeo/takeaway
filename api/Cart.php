@@ -60,7 +60,7 @@ class Cart extends Api
     //       ->get();
     $r = $this->select(['product.title','cart.product_id','product.price','cart.count','cart.user_id','cart.id'])
     ->join(['product','user'])
-    ->where('user.id',27)
+    ->where('user.id',$user_id)
     ->order_by('id')
     ->get();
     foreach ($r as $key => $value) {
