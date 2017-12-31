@@ -15,6 +15,9 @@
 
       var me = this;
       render_list(me);
+      if(this.after_render_list){
+        this.after_render_list();
+      }
     }
   }
 

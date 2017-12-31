@@ -21,8 +21,6 @@ function parse_uri()
   $arr = explode('/', $uri);
   $param = array_merge($_GET, $_POST);
 
-  // dd($arr);
-
   switch($arr[0]){
     case '':
       import('view/public/home');
@@ -48,6 +46,10 @@ function parse_uri()
       die();
       break;
     case 'user':
+      import('view/public/' . $arr[1]);
+      die();
+      break;
+    case 'order':
       import('view/public/' . $arr[1]);
       die();
       break;
@@ -92,7 +94,8 @@ function has_permission_to($model, $action){
     ],
     'order' => [
       'add' => ['admin', 'user'],
-      'checkout' => ['admin', 'user']
+      'checkout' => ['admin', 'user'],
+      'read' => ['user', 'admin']
     ]
   ];
 

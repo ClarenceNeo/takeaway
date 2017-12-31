@@ -26,6 +26,7 @@ class Order extends Api
       'product' => [],
     ];
     $row = [];
+    
     foreach ($list as $product_info) {
       $pid = @$product_info['product_id'];
       $count = $product_info['count'];

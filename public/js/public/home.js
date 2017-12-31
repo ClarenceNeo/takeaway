@@ -9,10 +9,38 @@
 
   cat.list_tpl_maker = function(item) {
     return `
-      <a href="" class="cat-item">${item.title}</a>
+      <a href="#cat${item.id}" class="cat-item">${item.title}</a>
     `;
   }
   cat.read();
+
+  cat.after_render_list = function() {
+    var links = document.querySelectorAll('#cat-list a');
+    // for (var i = 0; i < links.length; i++) {
+    //   var link = links[i];
+
+    //   link.addEventListener("click", function (e) {
+    //     e.preventDefault();
+    //     var href = link.attributes.getNamedItem("href").value;
+    //     // console.log(href);
+    //     var target = document.querySelector(href);
+    //     console.log(target);
+    //     scrollToElement(target);
+    //   });
+    // }
+
+    links[0].addEventListener('click', function (e) {
+      e.preventDefault();
+      var href = links[0].attributes.getNamedItem("href").value;
+      $("html,body").animate({ scrollTop: $(href).offset().top }, 200);
+    })
+
+    links[1].addEventListener('click', function (e) {
+      e.preventDefault();
+      var href2 = links[1].attributes.getNamedItem("href").value;
+      $("html,body").animate({ scrollTop: $(href2).offset().top }, 200);
+    })
+  }
 
   var product = new Ui('product', '#product-list', 'item col col-4 row');
 
@@ -31,6 +59,7 @@
       </div>
     `;
   }
+
 
   product.read();
 

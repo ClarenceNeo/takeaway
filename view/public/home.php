@@ -5,15 +5,16 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/public/home.css">
-  <title>Document</title>
+  <title>外卖</title>
 </head>
 <body>
 <div class="nav place">
-  <a class="item active" href="">首页</a>
-  <a class="item order menu" href="">我的订单</a>
+  <a class="item active" href="/">首页</a>
+  <a class="item order menu" href="/user/order">我的订单</a>
   <?php if(@$_SESSION['user']['permission']==='admin'): ?>
     <a href="admin/product" class="item menu">后台管理</a>
   <?php endif; ?>
@@ -72,7 +73,7 @@
     </div>
   </div>
 </div>
-<div class="place main">
+<div class="place main" id="cat29">
   <div id="product-list" class="box main row product">
     <div class="item col col-4 row">
       <div class="col col-4">
@@ -90,6 +91,323 @@
     <div class="item col col-4"></div>
     <div class="item col col-4"></div>
     <div class="item col col-4"></div>
+  </div>
+</div>
+
+<div class="place main" id="cat28">
+  <div id="product-list" class="box main row product">
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="item col col-4 row">
+      <div class="col col-4">
+        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+        <div class="product-time">25 分钟</div>
+      </div>
+      <div class="col col-8 product-right">
+        <h3 class="product-item product-title">快乐柠檬</h3>
+        <div class="product-item product-sales">月售<span>299</span>单</div>
+        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+        <div class="product-item product-price">¥ <span>20</span></div>
+        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+      </div>
+    </div>
   </div>
 </div>
 <?php import('view/component/js') ?>

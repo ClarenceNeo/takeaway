@@ -165,7 +165,7 @@ class Db
     $this->sql_column = trim($this->sql_column, ',');
     $this->sql_value = trim($this->sql_value, ',');
 
-    $this->sql = "insert into $this->escaped_table($this->sql_column) values ($this->sql_value)";
+    $this->sql = "insert into $this->escaped_table ($this->sql_column) values ($this->sql_value)";
     // dd($this->sql);
     $r = $this->execute();
     $this->init_sql();
@@ -174,7 +174,7 @@ class Db
 
   public function delete()
   {
-    $this->sql = "DELETE FROM $this->escaped_table$this->sql_where";
+    $this->sql = "DELETE FROM $this->escaped_table $this->sql_where";
     // dd($this->sql);
     $r = $this->execute();
     $this->init_sql();
@@ -204,7 +204,7 @@ class Db
       $this->sql_where = trim($this->sql_where, ' AND');
     }
 
-    $this->sql = "SELECT $this->sql_select from $this->escaped_table$this->sql_join $this->sql_where $this->sql_order_by $this->sql_limit";
+    $this->sql = "SELECT $this->sql_select from $this->escaped_table  $this->sql_join $this->sql_where $this->sql_order_by $this->sql_limit";
     // dd($this->sql);
     $this->execute();
     $this->init_sql();
@@ -247,7 +247,7 @@ class Db
 
   public function all_column()
   {
-    $this->sql = "desc $this->escaped_table";
+    $this->sql = "desc $this->escaped_table ";
     // dd($this->sql);
     $this->execute();
     $r = $this->get_data();

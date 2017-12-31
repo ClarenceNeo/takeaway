@@ -93,6 +93,11 @@ class Cart extends Api
     // dd($p);
     $product_id = @$p['product_id'];
     $count = @$p['count'];
+
+    if($count === '0'){
+      return $this->where('product_id', $product_id)->delete();
+    }
+
     if ( ! $product_id || ! $count || ! ($product = (new Product)->find($product_id))) {
       $msg = 'invalid:product_id||count';
       return false;
