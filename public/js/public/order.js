@@ -9,6 +9,7 @@
   order.after_read = function () {
     el_table.innerHTML = '';
     var thead = document.createElement("thead");
+    thead.classList.add('tb-head','main');
     thead.innerHTML = `
       <tr>
         <th>订单详情</th>
@@ -59,11 +60,13 @@
               <span>已完成</span>
             </div>
           </td>
-          <td rowspan="${product.length}">
-            <div>
-              <button>支付</button>
+          <td rowspan="${product.length} tac">
+            <div class="tac">
+              <button class="btn">支付</button>
             </div>
-            <a href="">评价</a>
+            <div class="tac">
+              <button class="btn">评价</button>
+            </div>
           </td>
         </tr>
       `;
