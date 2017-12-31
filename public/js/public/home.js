@@ -16,22 +16,39 @@
 
   function updateSliderControl() {
     // 获得所有的 slider 链接
-    var links = document.querySelectorAll("#slider-control a")
+    // var links = document.querySelectorAll("#slider-control a")
 
-    for (var i = 0; i < links.length; i++) {
-      var link = links[i];
+    // for (var i = 0; i < links.length; i++) {
+    //   var link = links[i];
 
-      // 获取被链接指向的部分
-      var section = document.querySelector(link.getAttribute("href"));
-      var sectionTop = section.offsetTop;
-      var sectionBottom = section.getBoundingClientRect().bottom - section.getBoundingClientRect().top + section.offsetTop;
+    //   // 获取被链接指向的部分
+    //   var section = document.querySelector(link.getAttribute("href"));
+    //   var sectionTop = section.offsetTop;
+    //   var sectionBottom = section.getBoundingClientRect().bottom - section.getBoundingClientRect().top + section.offsetTop;
 
-      // 检查 window.scrollY 是否在这部分中
-      if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
-        link.className = "active";
-      } else {
-        link.className = "";
-      }
+    //   // 检查 window.scrollY 是否在这部分中
+    //   if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
+    //     link.className = "active";
+    //   } else {
+    //     link.className = "";
+    //   }
+    // }
+
+    var links = document.querySelectorAll('#cat-list a');
+
+    var section = document.querySelector(links[0].getAttribute("href"));
+    var sectionTop = section.offsetTop - 74;
+    var sectionBottom = section.getBoundingClientRect().bottom - section.getBoundingClientRect().top + section.offsetTop - 74;
+
+    // console.log(sectionBottom);
+
+    // console.log(window.pageYOffset);
+
+    if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
+      links[0].classList.add('cat-active');
+      // console.log(window.pageYOffset)
+    } else {
+      links[0].classList.remove('cat-active');
     }
   }
 
@@ -62,10 +79,11 @@
       $("html,body").animate({ scrollTop: $(href2).offset().top-74 }, 200);
     })
 
-    var section = document.querySelector(links[0].getAttribute("href"));
-    var sectionTop = section.offsetTop;
-    // var sectionBottom = section.getBoundingClientRect().bottom - section.getBoundingClientRect().top + section.offsetTop;
-    // console.log(section,sectionTop,sectionBotton);
+    
+
+    window.onscroll = function () {
+      updateSliderControl();
+    }
   }
 
   var product = new Ui('product', '#product-list', 'item col col-4 row');

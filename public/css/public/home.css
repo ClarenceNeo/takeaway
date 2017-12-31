@@ -323,3 +323,7 @@
 .place.cat {
   height: 74px;
 }
+
+.cat-active {
+  background: #58a0fb;
+}
