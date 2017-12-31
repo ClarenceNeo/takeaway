@@ -19,14 +19,8 @@
       })
         .then(function (r) {
           if (r.success) {
-            // me.read();
             location.href = '/';
           }
-          // me.list = r.data;
-          // if (me.after_add)
-          //   me.after_add();
-
-          // return r;
         })
 
       // $.post('/api/user/login', el_form.get_data())

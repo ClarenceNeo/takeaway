@@ -53,13 +53,13 @@
     links[0].addEventListener('click', function (e) {
       e.preventDefault();
       var href = links[0].attributes.getNamedItem("href").value;
-      $("html,body").animate({ scrollTop: $(href).offset().top }, 200);
+      $("html,body").animate({ scrollTop: $(href).offset().top-74 }, 200);
     })
 
     links[1].addEventListener('click', function (e) {
       e.preventDefault();
       var href2 = links[1].attributes.getNamedItem("href").value;
-      $("html,body").animate({ scrollTop: $(href2).offset().top }, 200);
+      $("html,body").animate({ scrollTop: $(href2).offset().top-74 }, 200);
     })
 
     var section = document.querySelector(links[0].getAttribute("href"));

@@ -1,0 +1,39 @@
+.place {
+  height: 100%;
+}
+
+.title {
+  margin-top: 20%;
+  color: #299FFC;
+}
+
+.form-item {
+  font-size: 16px;
+  width: 15em;
+  line-height: 2em;
+  padding: 0 1em;
+  margin-top: 5px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  color: rgba(255, 255, 255, .9);
+  background: #299FFC;
+  border: 1px solid #299FFC;
+  border-radius: 5px;
+  width: 4em;
+  font-size: 16px;
+  margin-top: 1em;
+  line-height: 1.5em;
+}
+
+.submit-btn:hover {
+  background: #29b8fc;
+  border-color: #29b8fc;
+}
+
+.submit-btn:active {
+  background: #2991fc;
+  border-color: #2991fc;
+}
