@@ -37,7 +37,7 @@
 
 <div class="place">
   <table id="order-table">
-    <thead class="tb-head">
+    <!-- <thead class="tb-head">
       <tr>
         <th>订单详情</th>
         <th>收货人</th>
@@ -148,7 +148,7 @@
           <div class="goods-number col col-2 tac">x2</div>
         </td>
       </tr>
-    </tbody>
+    </tbody> -->
   </table>
   
   

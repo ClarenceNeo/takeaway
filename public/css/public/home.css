@@ -307,3 +307,19 @@
 .show {
   display: block;
 }
+
+#wrap{
+  background-color: rgba(255,255,255,0.9);
+}
+
+#wrap[data-fixed="fixed"]{
+  position: fixed;
+  top:0;
+  left: 15px;
+  right: 50px;
+  margin: 0;
+}
+
+.place.cat {
+  height: 74px;
+}

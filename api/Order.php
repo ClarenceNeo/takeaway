@@ -15,6 +15,17 @@ class Order extends Api
     $this->add_or_change($p, $msg);
   }
 
+  public function read($param = [], &$msg)
+  {
+    $id = $_SESSION['user']['id'];
+    $page = @$param['page'] ?: 1;
+    return $this
+      ->where('user_id', $id)
+      ->page($page)
+      ->order_by('id')
+      ->get();
+  }
+
   public function checkout($p, &$msg = null)
   {
     // dd($p);
@@ -26,7 +37,7 @@ class Order extends Api
       'product' => [],
     ];
     $row = [];
-    
+
     foreach ($list as $product_info) {
       $pid = @$product_info['product_id'];
       $count = $product_info['count'];
