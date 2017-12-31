@@ -14,6 +14,27 @@
   }
   cat.read();
 
+  function updateSliderControl() {
+    // 获得所有的 slider 链接
+    var links = document.querySelectorAll("#slider-control a")
+
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+
+      // 获取被链接指向的部分
+      var section = document.querySelector(link.getAttribute("href"));
+      var sectionTop = section.offsetTop;
+      var sectionBottom = section.getBoundingClientRect().bottom - section.getBoundingClientRect().top + section.offsetTop;
+
+      // 检查 window.scrollY 是否在这部分中
+      if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
+        link.className = "active";
+      } else {
+        link.className = "";
+      }
+    }
+  }
+
   cat.after_render_list = function() {
     var links = document.querySelectorAll('#cat-list a');
     // for (var i = 0; i < links.length; i++) {
@@ -40,6 +61,11 @@
       var href2 = links[1].attributes.getNamedItem("href").value;
       $("html,body").animate({ scrollTop: $(href2).offset().top }, 200);
     })
+
+    var section = document.querySelector(links[0].getAttribute("href"));
+    var sectionTop = section.offsetTop;
+    // var sectionBottom = section.getBoundingClientRect().bottom - section.getBoundingClientRect().top + section.offsetTop;
+    // console.log(section,sectionTop,sectionBotton);
   }
 
   var product = new Ui('product', '#product-list', 'item col col-4 row');
