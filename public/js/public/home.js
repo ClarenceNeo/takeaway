@@ -130,7 +130,7 @@
           product.count = i.count + 1;
         }
       })
-      console.log(product);
+      // console.log(product);
       cart.add_or_update(product);
     })
   }
@@ -275,5 +275,9 @@
     var st = document.body.scrollTop || document.documentElement.scrollTop;
     obj.setAttribute("data-fixed", st >= ot ? "fixed" : "")
   }
+
+  document.querySelector(".sidebar-btn-backtop").addEventListener('click', function (e) {
+    $("html,body").animate({ scrollTop: 0 }, 200);
+  })
 
 })();

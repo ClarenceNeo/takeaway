@@ -326,4 +326,6 @@
 
 .cat-active {
   background: #58a0fb;
+  color: #fff;
+  border-radius: 5px;
 }

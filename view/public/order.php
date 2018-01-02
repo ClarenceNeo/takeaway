@@ -16,7 +16,7 @@
   <a class="item" href="/">首页</a>
   <a class="item order menu active" href="/user/order">我的订单</a>
   <?php if(@$_SESSION['user']['permission']==='admin'): ?>
-    <a href="admin/product" class="item menu">后台管理</a>
+    <a href="../../admin/product" class="item menu">后台管理</a>
   <?php endif; ?>
   <?php if (logged_in()): ?>
     <div class="item user dropdown menu" >
