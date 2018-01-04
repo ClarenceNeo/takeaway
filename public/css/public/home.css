@@ -270,7 +270,11 @@
 .product-img {
   display: inline-block;
   width: 70px;
-  margin: 0 0 10px 10px;
+  /* margin: 0 0 10px 10px; */
+}
+
+.product-img img {
+  border-radius: 5px;
 }
 
 .product-time {
@@ -320,6 +324,7 @@
   right: 0;
   left: 0;
   bottom: 0;
+  z-index: 999;
   /* background: rgba(255,255,255,0.5); */
 }
 
@@ -337,6 +342,7 @@
   left: 15px;
   right: 50px;
   margin: 0;
+  z-index: 99;
 }
 
 .place.cat {
@@ -347,4 +353,10 @@
   background: #58a0fb;
   color: #fff;
   border-radius: 5px;
+}
+
+/* footer */
+
+.footer {
+  height: 1300px;
 }

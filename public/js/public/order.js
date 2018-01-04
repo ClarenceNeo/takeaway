@@ -78,11 +78,11 @@
         if (j === 0) {
           var sub = document.createElement('td');
           sub.classList.add('goods','row');
-          var title = unescape(good.title.replace(/u/g, '%u'));
+          // var title = unescape(good.title.replace(/u/g, '%u'));
           sub.innerHTML = `
             <div class="goods-item col col-10">
               <div class="p-img"><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></div>
-              <div class="p-msg">${title}</div>
+              <div class="p-msg">${good.title}</div>
             </div>
             <div class="goods-number col col-2 tac">x${good.count}</div>
           `;
@@ -96,7 +96,7 @@
           <td class="goods row">
             <div class="goods-item col col-10">
               <div class="p-img"><img src="https://fuss10.elemecdn.com/e/53/3bcbafc27f4f11e59c0caa3d84ac9jpeg.jpeg?imageMogr2/thumbnail/720x720/format/webp/quality/85" alt=""></div>
-              <div class="p-msg">${title}</div>
+              <div class="p-msg">${good.title}</div>
             </div>
             <div class="goods-number col col-2 tac">x${good.count}</div>
           </td>

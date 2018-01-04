@@ -116,6 +116,7 @@
     </div>
   </div>
 </div>
+<div class="place footer"></div>
 
 <!-- <div class="place main" id="cat28">
   <div id="product-list" class="box main row product">

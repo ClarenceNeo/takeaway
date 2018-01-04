@@ -16,20 +16,9 @@
     <a class="nav-item" href="cat">分类管理</a>
     <a class="nav-item" href="order">订单管理</a>
   </div>
-  <form id="form">
-  </form>
-  <div id="list">
-    <table>
-      <thead>
-        <th>id</th>
-        <th>标题</th>
-        <th>操作</th>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
+  <h2>订单管理</h2>
   <?php import('view/component/js') ?>
   <?php import('view/component/admin_js') ?>
-  <script src="/js/admin/cat.js"></script>
+  <script src="/js/admin/order.js"></script>
 </body>
 </html>

@@ -89,8 +89,8 @@ class Order extends Api
       $snapshot['product'][] = $product;
     }
     $row['user_id'] = his('id');
-    $row['product'] = json_encode($list);
-    $row['snapshot'] = json_encode($snapshot);
+    $row['product'] = json_encode($list,JSON_UNESCAPED_UNICODE);
+    $row['snapshot'] = json_encode($snapshot,JSON_UNESCAPED_UNICODE);
     $row['order_num'] = $this->generate_order_num();
     if ($this->insert($row)) {
       return $cart->clear_his_cart();
