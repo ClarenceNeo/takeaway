@@ -299,7 +299,28 @@
           var el_group = document.createElement('div');
           el_group.id = 'cat-' + key;
           el_group.classList.adds('box main row product');
-
+          // var index  = key;
+          (function get_cat(key, el_group) {
+            $.get('api/cat/read')
+              .then(function (r) {
+                if (r.success) {
+                  // console.log(r.data);
+                  var row = r.data.find(function (item) {
+                    if(item.id == key){
+                      return true;
+                    }
+                  })
+                  var el = document.createElement('h2');
+                  el.classList.add('cat-title');
+                  el.innerText = row.title;
+                  // el_group.appendChild(el);
+                  el_group.insertBefore(el, el_group.firstChild);
+                  // console.log(el_group);
+                  // console.log(row);
+                }
+              })
+          })(key, el_group);
+          
           el_product_list.appendChild(el_group);
 
           list.forEach(function (product) {
@@ -338,48 +359,7 @@
         }
       })
   }
-  // product.after_read = function () {
-  //   product.list_each(function (row) {
-  //     var el = document.createElement('div');
-  //     el.classList.add('product-item', 'clearfix');
-  //     el.innerHTML = `
-  //         <div class="col-xs-5">
-  //           <img src="/upload/${row.cover_path}">
-  //         </div>
-  //         <div class="col-xs-7 detail">
-  //           <div class="title">${row.title}</div>
-  //           <div class="other">库存：${row.stock}</div>
-  //           <div class="other">月销：${row.sales}</div>
-  //           <div class="price">￥ ${row.price}</div>
-  //           <button class="add" type="button">+</button>
-  //         </div>
-  //     `;
-  //
-  //     var timer; // 提升变量
-  //     var count = 1;
-  //
-  //     el
-  //       .querySelector('.add')
-  //       .addEventListener('click', function () {
-  //         /*清除上次点击生成的计时器，
-  //         一旦在计时器超时前将其清除，
-  //         其内部的任何操作都不会执行*/
-  //         clearTimeout(timer);
-  //         count++;
-  //         /*生成这次点击的计时器*/
-  //         timer = setTimeout(function () {
-  //           /*300毫秒之后执行底下的操作*/
-  //           $.post('/api/cart/add_or_update', {
-  //             product_id: 30,
-  //             count: count
-  //           })
-  //         }, 300);
-  //       })
-  //
-  //     el_product_list.appendChild(el);
-  //   })
-  // }
-
+  
   /*====== cat =======*/
   cat.after_read = function () {
     // console.log(cat);

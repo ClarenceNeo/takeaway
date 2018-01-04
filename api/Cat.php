@@ -19,4 +19,5 @@ class Cat extends Api
       ->order_by('id','asc')
       ->get();
   }
+
 }

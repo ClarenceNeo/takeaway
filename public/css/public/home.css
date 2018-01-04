@@ -241,8 +241,17 @@
 
 /* product */
 
+.cat-title {
+  position: absolute;
+  top: -2em;
+  left: 1em;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
 .product.main {
-  margin-top: 20px;
+  margin-top: 60px;
+  position: relative;
 }
 
 .box.main {
