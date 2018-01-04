@@ -326,8 +326,8 @@
                 var cart_row = cart.selected[product.id] = {
                   count: 1,
                   product_id: product.id,
-                  product_price: product.price,
-                  product_title: product.title
+                  price: product.price,
+                  title: product.title
                 }
 
                 // console.log(cart_row);
@@ -407,6 +407,7 @@
     for (var key in cart.selected) {
       (function () {
         var row = cart.selected[key];
+        var index = key;
         console.log(row);
         var el = document.createElement('div');
         el.classList.add('sidebarcart-box-item');
@@ -423,7 +424,7 @@
           <div class="product-price-sum red">¥ ${product_price_sum}</div>
         `;
 
-        function on_count_change(add) {
+        function on_count_change(add, index) {
           var el_count = el.querySelector('.count-num');
           if (add)
             el_count.value = ++row.count;
@@ -434,7 +435,7 @@
               product_id: row.product_id,
               count: 0
             });
-            delete cart.selected[key];
+            delete cart.selected[index];
             cart.render();
           }
 
@@ -447,12 +448,12 @@
         el_cart.appendChild(el);
         el.querySelector('.add')
           .addEventListener('click', function () {
-            on_count_change(true);
+            on_count_change(true, index);
           });
 
         el.querySelector('.minus')
           .addEventListener('click', function () {
-            on_count_change(false);
+            on_count_change(false, index);
           })
 
       }

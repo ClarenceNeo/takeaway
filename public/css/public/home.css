@@ -128,6 +128,16 @@
   transition: .3s;
 }
 
+.sidebarcart-box-item .title {
+  width: 6em;
+  /*溢出的部分用省略号代替*/
+  text-overflow: ellipsis;
+  /*溢出的部分隐藏*/
+  overflow: hidden;
+  /*强制不换行*/
+  white-space: nowrap;
+}
+
 /* nav */
 
 .nav {
