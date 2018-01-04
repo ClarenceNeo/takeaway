@@ -106,3 +106,8 @@ function move_uploaded($key, &$data = null)
 
   return $r;
 }
+
+function he_is($permission)
+{
+  return @$_SESSION['user']['permission'] === $permission;
+}

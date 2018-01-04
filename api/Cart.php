@@ -15,40 +15,33 @@ class Cart extends Api
     ])->get();
   }
 
-  public function add_cart($param, &$msg)
+  public function read($p = null, &$msg = null)
   {
-    $id = @$param['product_id'];
+    $his_id = his('id');
+    // $s = $this
+    //   ->pdo
+    //   ->prepare("
+    //   SELECT
+    //     cart.product_id,
+    //     cart.count,
+    //     product.title AS product_title,
+    //     product.price AS product_price
+    //   from cart INNER JOIN product ON cart.product_id = product.id
+    //   where cart.user_id = $his_id
+    //   ");
 
-    $row = [
-      'user_id' => @$_SESSION['user']['id'],
-      'product_id' => $id
-    ];
+    // $s->execute();
+    // return $s->fetchAll(PDO::FETCH_ASSOC);
 
-    $current = $this->find_cart($id, $msg);
+    // dd($his_id);
 
-    if ($current) {
-      ++$current[0]['count'];
-      $this->add_or_change($current[0], $msg);
-    } else {
-      $row['count'] = 1;
-      $this->add_or_change($row, $msg);
-    }
-    // return $this->read_cart();
-  }
+    $r = $this->select(['product.title','cart.product_id','product.price','cart.count','cart.user_id','cart.id'])
+    ->join(['product','user'])
+    ->where('user.id',$his_id)
+    ->order_by('id')
+    ->get();
 
-  public function reduce_cart($param, &$msg)
-  {
-    $id = @$param['id'];
-    $product_id = @$param['product_id'];
-    $current = $this->find_cart($product_id, $msg);
-    // dd($id);
-    if ($current[0]['count'] == 1) {
-      // dd($id);
-      $this->remove(@$param, $msg);
-    }else{
-      --$current[0]['count'];
-      $this->add_or_change($current[0], $msg);
-    }
+    return $r;
   }
 
   public function read_cart()
@@ -116,6 +109,18 @@ class Cart extends Api
     $p['user_id'] = his('id');
     $this->safe_fill($p);
     return $this->save($msg);
+  }
+
+  public function his_product()
+  {
+    return $this->read();
+  }
+
+  public function clear_his_cart()
+  {
+    return $this
+      ->where('user_id', his('id'))
+      ->delete();
   }
 
 }

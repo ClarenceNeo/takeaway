@@ -56,9 +56,9 @@
       e.preventDefault();
       // var data = get_form_data(me.el_form);
       me.row = this.get_data();
-      // clear_form(me.el_form);
+      clear_form(me.el_form);
       me.add();
-      me.read();
+      // me.read();
     });
   }
 

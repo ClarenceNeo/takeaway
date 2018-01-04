@@ -24,8 +24,6 @@
         <th>分类</th>
         <th>价格</th>
         <th>销量</th>
-        <th>配送费</th>
-        <th>配送时间</th>
         <th>封面图片</th>
         <th>操作</th>
       </thead>

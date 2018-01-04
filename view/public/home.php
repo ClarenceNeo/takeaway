@@ -72,28 +72,52 @@
     <div id="cat-list" class="cat-list col col-10"></div>
   </div>
 </div>
-<div class="place main" id="cat29">
-  <div id="product-list" class="box main row product">
-    <div class="item col col-4 row">
-      <div class="col col-4">
-        <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
-        <div class="product-time">25 分钟</div>
+<div class="place main" id="product-wrap">
+  <div class="cat">
+    <h2>特色</h2>
+    <div id="product-list" class="box main row product">
+      <div class="item col col-4 row">
+        <div class="col col-4">
+          <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+          <div class="product-time">25 分钟</div>
+        </div>
+        <div class="col col-8 product-right">
+          <h3 class="product-item product-title">快乐柠檬</h3>
+          <div class="product-item product-sales">月售<span>299</span>单</div>
+          <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+          <div class="product-item product-price">¥ <span>20</span></div>
+          <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+        </div>
       </div>
-      <div class="col col-8 product-right">
-        <h3 class="product-item product-title">快乐柠檬</h3>
-        <div class="product-item product-sales">月售<span>299</span>单</div>
-        <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
-        <div class="product-item product-price">¥ <span>20</span></div>
-        <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
-      </div>
+      <div class="item col col-4"></div>
+      <div class="item col col-4"></div>
+      <div class="item col col-4"></div>
     </div>
-    <div class="item col col-4"></div>
-    <div class="item col col-4"></div>
-    <div class="item col col-4"></div>
+  </div>
+  <div class="cat">
+    <h2>特色</h2>
+    <div id="product-list" class="box main row product">
+      <div class="item col col-4 row">
+        <div class="col col-4">
+          <a class="product-img tac" href=""><img src="https://fuss10.elemecdn.com/0/8d/d847f56880bab0af0b927c8356f8epng.png?imageMogr2/thumbnail/140x140" alt=""></a>
+          <div class="product-time">25 分钟</div>
+        </div>
+        <div class="col col-8 product-right">
+          <h3 class="product-item product-title">快乐柠檬</h3>
+          <div class="product-item product-sales">月售<span>299</span>单</div>
+          <div class="product-item product-delivery">配送费 ¥<span>5</span></div>
+          <div class="product-item product-price">¥ <span>20</span></div>
+          <button class="product-item product-cart">加入购物车 <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <div class="item col col-4"></div>
+      <div class="item col col-4"></div>
+      <div class="item col col-4"></div>
+    </div>
   </div>
 </div>
 
-<div class="place main" id="cat28">
+<!-- <div class="place main" id="cat28">
   <div id="product-list" class="box main row product">
     <div class="item col col-4 row">
       <div class="col col-4">
@@ -408,7 +432,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <?php import('view/component/js') ?>
 <?php import('view/component/public_js') ?>
 <script src="/js/public/home.js"></script>

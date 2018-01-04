@@ -66,7 +66,7 @@ function parse_uri()
 function has_permission_to($model, $action){
   $public = [
     'user' => ['signup', 'login', 'logout','is_logged_in'],
-    'product' => ['read'],
+    'product' => ['read','read_cat_group'],
     'cat' => ['read'],
     'cart' => ['read_cart','read_shopping_cart']
   ];
@@ -90,7 +90,8 @@ function has_permission_to($model, $action){
       'add_cart' => ['user', 'admin'],
       'reduce_cart' => ['user', 'admin'],
       'clear' => ['admin', 'user'],
-      'add_or_update' => ['user', 'admin']
+      'add_or_update' => ['user', 'admin'],
+      'read' => ['user', 'admin']
     ],
     'order' => [
       'add' => ['admin', 'user'],

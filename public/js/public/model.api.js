@@ -57,5 +57,11 @@
         }
       }.bind(this))
   }
+
+  Model.prototype.list_each = function (callback) {
+    this.list.forEach(function (item, index) {
+      callback(item, index);
+    });
+  }
   
 })();

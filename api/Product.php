@@ -21,4 +21,13 @@ class Product extends Api
         ->update(['cover_path' => $upload['fullname']]);
     }
   }
+
+  public function read_cat_group()
+  {
+    $s = $this
+      ->pdo
+      ->prepare('select cat_id, product.* from product');
+    $s->execute();
+    return $s->fetchAll(PDO::FETCH_GROUP|PDO::FETCH_ASSOC);
+  }
 }
