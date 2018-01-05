@@ -7,7 +7,7 @@
       .then(function (r) {
         if (r.success)
           order.status_list = r.data;
-          console.log(order);
+          // console.log(order);
       });
   }
 
@@ -61,15 +61,16 @@
       .addEventListener('change', function () {
         $.post('/api/order/update_status', { id: row.id, status: this.value })
           .then(function (r) {
+            console.log(r);
             if (!r.success)
               alert('网络错误')
           })
       })
   }
 
-  // order.after_remove = function () {
-  //   order.read();
-  // }
+  order.after_remove = function () {
+    order.read();
+  }
 
   // cat_api.after_read = function () {
   //   get_cat_selection();
@@ -87,7 +88,7 @@
   function init() {
     order.read_status_list()
       .then(function () {
-        order.read()
+        order.read();
       })
   }
 

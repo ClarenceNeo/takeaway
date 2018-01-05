@@ -97,7 +97,8 @@ function has_permission_to($model, $action){
       'add' => ['admin', 'user'],
       'checkout' => ['admin', 'user'],
       'read' => ['user', 'admin'],
-      'read_status_list' => ['admin']
+      'read_status_list' => ['admin'],
+      'update_status'    => ['admin'],
     ]
   ];
 

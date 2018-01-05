@@ -1,0 +1,85 @@
+.nav {
+  margin-right: 0;
+}
+
+table {
+  width: 100%;
+  font-size: 14px;
+  border-collapse:collapse;
+}
+
+table td {
+  padding: 0 10px;
+}
+
+
+
+.tb-head {
+  background: #F5F5F5;
+  line-height: 2.5em;
+  color: #666;
+}
+
+.main.tb-head {
+  font-size: 16px;
+  line-height: 3em;
+}
+
+.sep-row {
+  height: 20px;
+}
+
+.dealtime {
+  margin-right: 30px;
+}
+
+.remove-order {
+  float: right;
+  width: 30px;
+  text-align: center;
+}
+
+.remove-order:hover {
+  background: rgba(255, 255, 255, .5)
+}
+
+.remove-order:active {
+  background: rgba(0, 0, 0, .02)
+}
+
+.goods {
+  padding: 10px 0;
+}
+
+.goods-item {
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.goods-number {
+  display: inline-block;
+  line-height: 60px;
+}
+
+.p-img, .p-msg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.p-msg {
+  padding: 5px 10px;
+}
+
+.p-img {
+  width: 60px;
+  height: 60px;
+}
+
+.btn {
+  margin: 5px;
+  padding: 5px 10px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #eee;
+  cursor: pointer;
+}

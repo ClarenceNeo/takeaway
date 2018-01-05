@@ -58,7 +58,7 @@ body {
 }
 
 #list td, #list th {
-  max-width: 100px;
+  max-width: 600px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

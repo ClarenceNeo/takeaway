@@ -19,7 +19,7 @@
   <div class="container">
     <div id="list">
       <table class="table table-striped">
-        <thead>
+        <thead class="tb-head">
           <th>订单号</th>
           <th>总价</th>
           <th>用户</th>

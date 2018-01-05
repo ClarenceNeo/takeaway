@@ -59,8 +59,12 @@
       e.preventDefault();
       // var data = get_form_data(me.el_form);
       me.row = this.get_data();
-      clear_form(me.el_form);
-      me.add();
+      // me.el_form.$reset();
+      me.add()
+      .then(function (r) {
+        if (r.success)
+          me.el_form.$reset();
+      });
       // me.read();
     });
   }
@@ -69,7 +73,8 @@
     var update = el.querySelector('.update');
     var remove = el.querySelector('.remove');
     update.addEventListener('click', function() {
-      set_form_data(me.el_form, data);
+      // set_form_data(me.el_form, data);
+      me.el_form.set_data(data);
     });
     remove.addEventListener('click', function () {
       me.remove(data.id);
@@ -86,36 +91,4 @@
     return obj;
   }
 
-  function set_form_data(form, data){
-    for(var key in data){
-      var value = data[key];
-      var input_list = form.querySelectorAll(`[name=${key}]`);
-      input_list.forEach(function (input) {
-        /*如果是input类型是checkbox或radio*/
-        if (input.type == 'checkbox' || input.type == 'radio') {
-          /*检查input中预设的值是否在playing中*/
-          if (value.indexOf(input.value) === -1) {
-            /*如果不在就取消打钩*/
-            input.checked = false;
-          } else {
-            /*如果在就打钩*/
-            input.checked = true;
-          }
-        } else {
-          /*如果是常规input，直接设置值*/
-          input.value = value;
-        }
-      })
-    }
-  }
-
-  function clear_form(form){
-    var list = form.querySelectorAll('[name]');
-    list.forEach(function (input) {
-      if (input.type == 'checkbox' || input.type == 'radio')
-        input.checked = false;
-      else
-        input.value = null;
-    })
-  }
 })();

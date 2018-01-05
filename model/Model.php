@@ -71,7 +71,7 @@ class Model extends Db
       }
       // dd($filled);
       $this->where('id', $filled['id']);
-      $r = $this->update($filled);
+      $r = $this->update($filled) ? $filled['id'] : false;
     } else {
       if ($this->insert($filled)) {
         $r = $this->last_id();
