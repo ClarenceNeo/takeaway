@@ -100,6 +100,9 @@ function has_permission_to($model, $action){
       'read_status_list' => ['admin'],
       'update_status'    => ['admin'],
       'remove' => ['admin']
+    ],
+    'user' => [
+      'read' => ['admin']
     ]
   ];
 
