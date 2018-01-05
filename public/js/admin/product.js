@@ -7,13 +7,13 @@
 
   product.form_tpl_maker = function () {
     return `
-      <input name="id" type="text" hidden>
-      <span class="col col-3 tar form-name">标题：</span><input class="col col-9 form-input" name="title" type="text">
-      <span class="col col-3 tar form-name">分类：</span><select class="col col-9 form-input" id="cat-list" name="cat_id"></select>
-      <span class="col col-3 tar form-name">价格：</span><input class="col col-9 form-input" name="price" type="number">
-      <span class="col col-3 tar form-name">销量：</span><input class="col col-9 form-input" name="sales" type="number">
-      <span class="col col-3 tar form-name">封面：</span><input class="col col-9 form-input" name="cover_path" type="file" placeholder="cover">
-      <button class="form-btn" type="submit">提交</button>
+      <label><input name="id" type="text" hidden></label>
+      <label class="title">标题：</span><input class="col col-9 form-input" name="title" type="text"></label>
+      <label class="title">分类：</span><select class="col col-9 form-input" id="cat-list" name="cat_id"></select></label>
+      <label class="title">价格：</span><input class="col col-9 form-input" name="price" type="number"></label>
+      <label class="title">销量：</span><input class="col col-9 form-input" name="sales" type="number"></label>
+      <label class="title">封面：</span><input class="col col-9 form-input" name="cover_path" type="file" placeholder="cover"></label>
+      <div class="btn-box"><button class="form-btn submit-btn" type="submit">提交</button><div>
     `;
   }
   product.table_tpl_maker = function (item) {

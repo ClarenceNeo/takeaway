@@ -83,3 +83,7 @@ table td {
   background: #eee;
   cursor: pointer;
 }
+
+#list {
+  padding: 0;
+}

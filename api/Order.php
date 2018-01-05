@@ -138,4 +138,18 @@ class Order extends Api
     $last_id = (int) @$max[0]['id'];
     return rand(100, 999) . ($last_id + 1);
   }
+
+  public function update_status($p)
+  {
+    // dd($p);
+    $id = @$p['id'];
+    $status = @$p['status'];
+    if ( ! $status || ! $id || ! ($row = $this->find($id)))
+      return e('invalid:id||status');
+
+    if ( ! key_exists($status, $this->status_list))
+      return e('invalid:status');
+
+    return $this->where('id', $id)->update(['status' => $status]);
+  }
 }

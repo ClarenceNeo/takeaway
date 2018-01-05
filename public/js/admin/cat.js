@@ -12,8 +12,8 @@
   cat.form_tpl_maker = function(item) {
     return `
       <label><input name="id" type="text" hidden></label>
-      <label>标题：<input name="title" type="text"></label>
-      <button type="submit">提交</button>
+      <label class="title">标题：<input name="title" type="text"></label>
+      <div class="btn-box"><button type="submit" class="submit-btn">提交</button><div>
     `;
   }
   cat.init();

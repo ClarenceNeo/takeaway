@@ -16,7 +16,7 @@
     <a class="nav-item active" href="cat">分类管理</a>
     <a class="nav-item" href="order">订单管理</a>
   </div>
-  <form id="form">
+  <form id="form" class="form">
   </form>
   <div id="list">
     <table>

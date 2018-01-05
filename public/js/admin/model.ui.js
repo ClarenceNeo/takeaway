@@ -45,6 +45,8 @@
         el.appendChild(handle);
         bind_table_item(el, item, me);
       }
+      if (me.on_render_table_item)
+        me.on_render_table_item(el, item);
       me.el_table.appendChild(el);
     });
   }
