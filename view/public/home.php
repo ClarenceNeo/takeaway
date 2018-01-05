@@ -67,9 +67,9 @@
   <div class="item search-box"><input class="search-bar" type="text" placeholder="搜索美食"></div>
 </div>
 <div class="place cat">
-  <div class="box row" id="wrap">
-    <div class="cat-title col col-2 tac">美食分类：</div>
-    <div id="cat-list" class="cat-list col col-10"></div>
+  <div class="box" id="wrap">
+    <!-- <div class="cat-title col col-2 tac">美食分类：</div> -->
+    <div id="cat-list" class="cat-list col col-12 row"></div>
   </div>
 </div>
 <div class="place main" id="product-wrap">

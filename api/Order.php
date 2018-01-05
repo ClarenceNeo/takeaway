@@ -1,6 +1,9 @@
 <?php
 
 import('api/Api');
+import('api/Product');
+import('api/Cart');
+import('api/User');
 
 class Order extends Api
 {
@@ -13,6 +16,26 @@ class Order extends Api
     $p['product'] = json_encode($param['product']);
     // dd($p);
     $this->add_or_change($p, $msg);
+  }
+
+  public $status_list = [
+    'created'  => [
+      'name' => '已接单',
+    ],
+    'sending'  => [
+      'name' => '派送中',
+    ],
+    'received' => [
+      'name' => '已收货',
+    ],
+    'closed'   => [
+      'name' => '已关闭',
+    ],
+  ];
+
+  public function read_status_list()
+  {
+    return $this->status_list;
   }
 
   // public function read($param = [], &$msg)
@@ -28,8 +51,16 @@ class Order extends Api
 
   public function read($p = null, &$msg = null)
   {
-    if (he_is('admin'))
-      return parent::read($p, $msg);
+    if (he_is('admin')) {
+      $user = new User;
+      $list = parent::read($p, $msg);
+      foreach ($list as $i => $order) {
+        $list[$i]['user'] = $user
+          ->select(['id', 'username'])
+          ->find($order['user_id']);
+      }
+      return $list;
+    }
 
     return $this
       ->where('user_id', his('id'))

@@ -95,7 +95,7 @@
     // console.log(cat);
     cat.list_each(function (row) {
       var el = document.createElement('a');
-      el.classList.add('cat-item');
+      el.classList.add('cat-item','col','col-2');
       el.href = '#cat-' + row.id;
       el.innerText = row.title;
       el.addEventListener("click", function (e) {
@@ -124,9 +124,9 @@
     // console.log(cart);
     el_cart.innerHTML = '';
     for (var key in cart.selected) {
-      (function () {
+      (function (key) {
         var row = cart.selected[key];
-        var index = key;
+        // var index = key;
         // console.log(row);
         var el = document.createElement('div');
         el.classList.add('sidebarcart-box-item');
@@ -154,7 +154,7 @@
               product_id: row.product_id,
               count: 0
             });
-            delete cart.selected[index];
+            delete cart.selected[key];
             cart.render();
           }
 
@@ -167,16 +167,16 @@
         el_cart.appendChild(el);
         el.querySelector('.add')
           .addEventListener('click', function () {
-            on_count_change(true, index);
+            on_count_change(true);
           });
 
         el.querySelector('.minus')
           .addEventListener('click', function () {
-            on_count_change(false, index);
+            on_count_change(false);
           })
 
       }
-      )();
+      )(key);
     }
   }
 
@@ -289,6 +289,10 @@
     var st = document.body.scrollTop || document.documentElement.scrollTop;
     cat_box.setAttribute("data-fixed", st >= ot ? "fixed" : "")
   }
+
+  document.querySelector('.sidebar-btn-backtop').addEventListener('click', function () {
+    $("html,body").animate({ scrollTop: 0 }, 200);
+  })
 
   init();
 

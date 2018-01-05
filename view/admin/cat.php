@@ -13,7 +13,7 @@
   <div class="nav">
     <a class="nav-item" href="/">首页</a>
     <a class="nav-item" href="product">商品管理</a>
-    <a class="nav-item" href="cat">分类管理</a>
+    <a class="nav-item active" href="cat">分类管理</a>
     <a class="nav-item" href="order">订单管理</a>
   </div>
   <form id="form">

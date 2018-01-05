@@ -64,3 +64,7 @@ body {
   white-space: nowrap;
   padding: 5px 10px;
 }
+
+.active {
+  background: rgba(0, 0, 0, .1)
+}

@@ -2,6 +2,7 @@
   'use strict';
 
   var cat = new Ui('cat', '#list tbody', '#form');
+  cat.handle = true;
   cat.table_tpl_maker = function (item) {
     return `
       <td>${item.id}</td>

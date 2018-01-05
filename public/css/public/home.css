@@ -231,7 +231,7 @@
 }
 
 .cat-item {
-  padding: 3px 5px;
+  padding: 3px 1em;
   display: inline-block;
 }
 
@@ -324,7 +324,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: 999;
+  /* z-index: 99; */
   /* background: rgba(255,255,255,0.5); */
 }
 
@@ -359,4 +359,8 @@
 
 .footer {
   height: 1300px;
+}
+
+#submit-order {
+  z-index: 999;
 }

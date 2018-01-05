@@ -8,6 +8,7 @@
     this.el_table = document.querySelector(table_selector);
     this.form_tpl_maker = null;
     this.table_tpl_maker = null;
+    this.handle = false;
     this.after_read = function(){
       this.render();
     }
@@ -37,11 +38,13 @@
     me.el_table.innerHTML = '';
     me.list_each(function (item) {
       var el = document.createElement('tr');
-      var handle = document.createElement('td');
-      handle.innerHTML = '<td><button class="update">更新</button><button class="remove">删除</button></td>';
       el.innerHTML = me.table_tpl_maker(item);
-      el.appendChild(handle);
-      bind_table_item(el, item, me);
+      if (me.handle) {
+        var handle = document.createElement('td');
+        handle.innerHTML = '<td><button class="update">更新</button><button class="remove">删除</button></td>';
+        el.appendChild(handle);
+        bind_table_item(el, item, me);
+      }
       me.el_table.appendChild(el);
     });
   }
