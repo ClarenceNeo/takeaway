@@ -23,7 +23,7 @@
       <td>${item.cat_id}</td>
       <td>${item.price}</td>
       <td>${item.sales}</td>
-      <td>${item['cover_path']}</td>
+      <td class="cover"><img src="/upload/${item['cover_path']}" alt=""></td>
     `;
   }
 

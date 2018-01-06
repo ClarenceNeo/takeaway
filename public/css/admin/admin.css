@@ -9,6 +9,14 @@ body {
   padding-left: 10px;
 }
 
+img {
+  max-width: 100%;
+}
+
+.cover {
+  width: 100px;
+}
+
 .nav-item {
   font-size: 16px;
   color: #fff;
@@ -68,4 +76,25 @@ body {
 
 .active {
   background: rgba(0, 0, 0, .1)
+}
+
+.update, .remove {
+  font-size: 14px;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  transition: .3s;
+  color: #666;
+}
+
+.update:hover {
+  background: #308CDA;
+  color: #fff;
+  border: 1px solid #308CDA;
+}
+
+.remove:hover {
+  background: #D72E35;
+  color: #fff;
+  border: 1px solid #D72E35;
 }
