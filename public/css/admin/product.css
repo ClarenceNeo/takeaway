@@ -10,6 +10,10 @@
   margin-bottom: 10px;
 }
 
+.cover_file {
+  width: 75%;
+}
+
 .title {
   font-size: 16px;
 }

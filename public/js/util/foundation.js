@@ -51,9 +51,9 @@
 
               holder = me.$holder;
               if (!holder) {
-                // console.log(me, input);
-                holder = me.$holder = document.createElement('div');
-                me.insertBefore(holder, input);
+                parent = me.querySelector('.cover_img');
+                holder = me.$holder = document.createElement('label');
+                parent.insertBefore(holder, input);
                 holder.addEventListener('click', function () {
                   holder.hidden = true;
                   input.hidden = false;

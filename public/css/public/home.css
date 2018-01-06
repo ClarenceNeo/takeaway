@@ -138,12 +138,36 @@
   white-space: nowrap;
 }
 
+#submit-order {
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 90px 0px;
+  padding: 3px 15px;
+  white-space: nowrap;
+  border-radius: 8px;
+  color: #524D40;
+  transition: .3s;
+}
+
+#submit-order:hover {
+  background: #308CFF;
+  color: #fff;
+  border: 1px solid #308CFF;
+}
+
 /* nav */
+
+.header {
+  height: 250px;
+  background: url(http://oeryvxt85.bkt.clouddn.com/2018-01-06-food.jpeg);
+  background-size: cover;
+}
 
 .nav {
   font-size: 0;
   margin-right: 35px;
-  background: #288BDD;
+  background:rgba(0, 0, 0, .3);
+  /* filter: blur(5px); */
 }
 
 .nav .item{
@@ -156,11 +180,11 @@
 }
 
 .nav .active {
-  background: #0F6DC4;
+  background:rgba(0, 0, 0, .3);
 }
 
 .nav .menu:hover{
-  background: #1979CE;
+  background:rgba(0, 0, 0, .5);
 }
 
 .nav .user {
@@ -364,3 +388,4 @@
 #submit-order {
   z-index: 999;
 }
+

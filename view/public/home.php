@@ -12,28 +12,31 @@
   <title>外卖</title>
 </head>
 <body>
-<div class="nav place">
-  <a class="item active" href="/">首页</a>
-  <a class="item order menu" href="/user/order">我的订单</a>
-  <?php if(@$_SESSION['user']['permission']==='admin'): ?>
-    <a href="admin/product" class="item menu">后台管理</a>
-  <?php endif; ?>
-  <?php if (logged_in()): ?>
-    <div class="item user dropdown menu" >
-      <span><?php echo his('username') ?> <i class="fa fa-caret-down" aria-hidden="true"></i></span>
-      <ul class="dropdown-content">
-        <li class="list-item"><a href="">个人信息</a></li>
-        <li class="list-item"><a href="">地址</a></li>
-        <li class="list-item"><a href="">设置</a></li>
-        <hr>
-        <li class="list-item"><a href="/logout">退出登录</a></li>
-      </ul>
-    </div>
-  <?php else: ?>
-    <a class="item user menu" href="/user/login">登录</a>
-    <a class="item user menu" href="/user/signup">注册</a>
-  <?php endif; ?>
+<div class="header">
+  <div class="nav place">
+    <a class="item active" href="/">首页</a>
+    <a class="item order menu" href="/user/order">我的订单</a>
+    <?php if(@$_SESSION['user']['permission']==='admin'): ?>
+      <a href="admin/product" class="item menu">后台管理</a>
+    <?php endif; ?>
+    <?php if (logged_in()): ?>
+      <div class="item user dropdown menu" >
+        <span><?php echo his('username') ?> <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+        <ul class="dropdown-content">
+          <li class="list-item"><a href="">个人信息</a></li>
+          <li class="list-item"><a href="">地址</a></li>
+          <li class="list-item"><a href="">设置</a></li>
+          <hr>
+          <li class="list-item"><a href="/logout">退出登录</a></li>
+        </ul>
+      </div>
+    <?php else: ?>
+      <a class="item user menu" href="/user/login">登录</a>
+      <a class="item user menu" href="/user/signup">注册</a>
+    <?php endif; ?>
+  </div>
 </div>
+
 <div class="siderbar">
   <div class="sidebar-tabs">
     <div class="toolbar-tab-middle">

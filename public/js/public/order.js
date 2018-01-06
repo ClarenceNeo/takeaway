@@ -64,9 +64,6 @@
             <div class="tac">
               <button class="btn">支付</button>
             </div>
-            <div class="tac">
-              <button class="btn">评价</button>
-            </div>
           </td>
         </tr>
       `;
