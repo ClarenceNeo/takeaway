@@ -12,7 +12,7 @@
   <title>我的订单</title>
 </head>
 <body>
-<div class="nav place">
+<div class="nav place clearfix">
   <a class="item" href="/">首页</a>
   <a class="item order menu active" href="/user/order">我的订单</a>
   <?php if(@$_SESSION['user']['permission']==='admin'): ?>

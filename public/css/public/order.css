@@ -1,5 +1,6 @@
 .nav {
   margin-right: 0;
+  background: #308CDA;
 }
 
 table {
@@ -82,4 +83,8 @@ table td {
   border-radius: 10px;
   background: #eee;
   cursor: pointer;
+}
+
+#order-table {
+  margin-top: 20px;
 }

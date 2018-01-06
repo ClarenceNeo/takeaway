@@ -19,7 +19,8 @@
     var sum = 0;
 
     product_list.forEach(function (product) {
-      sum += product.product_price * product.count;
+      sum += product.price * product.count;
+      // console.log(product);
       var title = product_snapshot
         .find(function (item) {
           return item.id == product.product_id
@@ -38,7 +39,7 @@
 
     return `
         <td>${item.order_num}</td>
-        <td>${sum || '-'}</td>
+        <td>¥ ${sum || '-'}</td>
         <td>${item.user.username}</td>
         <td class="product-list">${product_tpl}</td>
         <td>
