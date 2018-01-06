@@ -265,6 +265,10 @@
 
 /* product */
 
+.place.main {
+  padding-bottom: 50px;
+}
+
 .cat-title {
   position: absolute;
   top: -2em;
@@ -382,10 +386,29 @@
 /* footer */
 
 .footer {
-  height: 1300px;
+  /* height: 1300px; */
 }
 
 #submit-order {
   z-index: 999;
 }
 
+.bottom-nav {
+  padding: 30px 20px;
+}
+
+.bottom-nav h3 {
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.bottom-nav-item {
+  font-weight: 300;
+  color: #666;
+  display: block;
+  padding: 5px 0;
+}
+
+.place.footer .col {
+  padding-left: 40px;
+}
