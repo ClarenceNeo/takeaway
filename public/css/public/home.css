@@ -11,7 +11,7 @@
   height: 100%;
   transform: translate3d(0px, 0px, 0px);
   transition: transform .3s ease-in-out;
-  background: #504D53;
+  background: #504d53e8;
   z-index: 12;
 }
 
@@ -30,7 +30,7 @@
   height: 100%;
   width: 295px;
   overflow: auto;
-  background-color: #e6e6e6;
+  background: rgba(255, 255, 255, 0.86);
 }
 
 .sidebarcart-caption {
@@ -220,6 +220,7 @@
 
 .place {
   padding: 0 15px;
+  min-width: 960px;
 }
 .place .item {
   display: inline-block;

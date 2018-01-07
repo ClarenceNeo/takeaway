@@ -19,7 +19,7 @@
     order.read_status_list()
       .then(function () {
         order.read();
-        console.log(order);
+        // console.log(order);
       })
   }
 
@@ -51,7 +51,8 @@
         amount+=i.price*i.count
       })
 
-      console.log(item.status);
+      // console.log(item.status);
+      var status = order.status_list[item.status].name;
 
       tbody.innerHTML = `
         <tr class="sep-row">
@@ -77,7 +78,7 @@
           </td>
           <td rowspan="${product.length}">
             <div class="status tac">
-              <span>已完成</span>
+              <span>${status}</span>
             </div>
           </td>
           <td rowspan="${product.length} tac">

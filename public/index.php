@@ -101,7 +101,8 @@ function has_permission_to($model, $action){
       'remove' => ['admin']
     ],
     'user' => [
-      'read' => ['admin']
+      'read' => ['admin'],
+      'remove' => ['admin']
     ]
   ];
 
