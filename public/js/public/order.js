@@ -4,7 +4,24 @@
   var el_table = document.querySelector('#order-table');
   // console.log(el_table);
 
-  order.read();
+  order.read_status_list = function () {
+    return $.get('/api/order/read_status_list')
+      .then(function (r) {
+        if (r.success)
+          order.status_list = r.data;
+        // console.log(order);
+      });
+  }
+
+  init();
+
+  function init(){
+    order.read_status_list()
+      .then(function () {
+        order.read();
+        console.log(order);
+      })
+  }
 
   order.after_read = function () {
     el_table.innerHTML = '';
@@ -25,14 +42,17 @@
     var length = this.list.length;
 
     for (let i = 0; i < length; i++) {
+      
       var item = this.list[i];
       var product = JSON.parse(item.product);
-      console.log();
       var tbody = document.createElement("tbody");
       var amount = 0;
-      product.forEach(function (item) {
-        amount+=item.price*item.count
+      product.forEach(function (i) {
+        amount+=i.price*i.count
       })
+
+      console.log(item.status);
+
       tbody.innerHTML = `
         <tr class="sep-row">
           <td colspan="5"></td>
@@ -67,6 +87,18 @@
           </td>
         </tr>
       `;
+
+      (function (item) {
+        tbody.querySelector('.remove-order').addEventListener('click', function () {
+          $.post('/../api/order/remove',item)
+            .then(function(r) {
+              if (r.success) {
+                order.read();
+              }
+            })
+        });
+      })(item)
+      
 
       // console.log(product);
 

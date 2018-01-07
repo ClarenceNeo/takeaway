@@ -39,7 +39,7 @@
 
     return `
         <td>${item.order_num}</td>
-        <td>¥ ${sum || '-'}</td>
+        <td>¥${sum || '-'}</td>
         <td>${item.user.username}</td>
         <td class="product-list">${product_tpl}</td>
         <td>

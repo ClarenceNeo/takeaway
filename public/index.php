@@ -68,7 +68,7 @@ function has_permission_to($model, $action){
     'user' => ['signup', 'login', 'logout','is_logged_in'],
     'product' => ['read','read_cat_group'],
     'cat' => ['read','find'],
-    'cart' => ['read_cart','read_shopping_cart']
+    'cart' => ['read']
   ];
   $private = [
     'product' => [
@@ -87,17 +87,16 @@ function has_permission_to($model, $action){
       'add_or_change' => ['admin']
     ],
     'cart' => [
-      'add_cart' => ['user', 'admin'],
+      'add' => ['user', 'admin'],
       'reduce_cart' => ['user', 'admin'],
       'clear' => ['admin', 'user'],
       'add_or_update' => ['user', 'admin'],
-      'read' => ['user', 'admin']
     ],
     'order' => [
       'add' => ['admin', 'user'],
       'checkout' => ['admin', 'user'],
       'read' => ['user', 'admin'],
-      'read_status_list' => ['admin'],
+      'read_status_list' => ['admin','user'],
       'update_status'    => ['admin'],
       'remove' => ['admin']
     ],

@@ -13,6 +13,7 @@ class Api extends Model
 
   public function remove($param, &$msg)
   {
+
     if (!$id = @$param['id']) {
       $msg = 'required: id';
       return false;

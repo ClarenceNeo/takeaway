@@ -1,26 +1,43 @@
 .place {
-  height: 100%;
+  height: 100vh;
+  position: relative;
+  background: url(http://oeryvxt85.bkt.clouddn.com/2018-01-07-photo-1424847651672-bf20a4b0982b.jpeg);
 }
-
+.cart {
+  position: absolute;
+  display: inline-block;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px 60px;
+  background: rgba(0, 0, 0, .3);
+  border-radius: 8px;
+}
 .title {
-  margin-top: 20%;
-  color: #299FFC;
+  /* margin-top: 20%; */
+  color: rgba(255, 255, 255, .8);
+  margin-bottom: 20px;
 }
 
 .form-item {
-  font-size: 16px;
+  font-size: 14px;
   width: 15em;
   line-height: 2em;
-  padding: 0 1em;
+  padding: .3em 1em;
   margin-top: 5px;
+  margin-bottom: 10px;
   border: 1px solid #eee;
   border-radius: 5px;
+  background: rgba(255, 255, 255, .8);
+
 }
 
 .submit-btn {
   color: rgba(255, 255, 255, .9);
   background: #299FFC;
   border: 1px solid #299FFC;
+  padding: .3em 1em;
+  white-space: nowrap;
   border-radius: 5px;
   width: 4em;
   font-size: 16px;
@@ -36,4 +53,12 @@
 .submit-btn:active {
   background: #2991fc;
   border-color: #2991fc;
+}
+
+.tip {
+  display: inline-block;
+  color: rgba(255, 255, 255, .9);
+  background: rgba(0, 0, 0, .3);
+  border-radius: 6px;
+  padding: 2px 5px;
 }

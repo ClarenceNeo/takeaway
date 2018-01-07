@@ -38,17 +38,6 @@ class Order extends Api
     return $this->status_list;
   }
 
-  // public function read($param = [], &$msg)
-  // {
-  //   $id = $_SESSION['user']['id'];
-  //   $page = @$param['page'] ?: 1;
-  //   return $this
-  //     ->where('user_id', $id)
-  //     ->page($page)
-  //     ->order_by('id')
-  //     ->get();
-  // }
-
   public function read($p = null, &$msg = null)
   {
     if (he_is('admin')) {
@@ -66,35 +55,6 @@ class Order extends Api
       ->where('user_id', his('id'))
       ->get();
    }
-
-  // public function checkout($p, &$msg = null)
-  // {
-  //   // dd($p);
-  //   //{list: [{id: 1, count: 3}, {id:3, count: 2, memo: "不加冰"}]}
-  //   $product_ins = new Product();
-  //   $list = @$p['list'];
-  //   $price = 0;
-  //   $snapshot = [
-  //     'product' => [],
-  //   ];
-  //   $row = [];
-
-  //   foreach ($list as $product_info) {
-  //     $pid = @$product_info['product_id'];
-  //     $count = $product_info['count'];
-  //     if ( ! $pid || ! $count || ! ($product = $product_ins->find($pid))) {
-  //       $msg = 'invalid:id&&count';
-  //       return false;
-  //     }
-  //     $price += (float) $product['price'] * (int) $count;
-  //     $snapshot['product'][] = $product;
-  //   }
-  //   $row['user_id'] = his('id');
-  //   $row['product'] = json_encode($list);
-  //   $row['snapshot'] = json_encode($snapshot);
-  //   $row['order_num'] = $this->generate_order_num();
-  //   return $this->insert($row);
-  // }
 
   public function checkout($p = null, &$msg = null)
   {
