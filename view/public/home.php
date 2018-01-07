@@ -35,6 +35,9 @@
       <a class="item user menu" href="/user/signup">注册</a>
     <?php endif; ?>
   </div>
+  <div class="place">
+    <div></div>
+  </div>
 </div>
 
 <div class="siderbar">

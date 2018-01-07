@@ -56,3 +56,12 @@
 table {
   width: 100%;
 }
+
+.cover-img-upload {
+  width: 100px;
+}
+
+.cover_img {
+  padding-left: 24px;
+  vertical-align: top;
+}

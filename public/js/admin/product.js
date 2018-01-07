@@ -12,7 +12,7 @@
       <label class="title">分类：<select class="col col-9 form-input" id="cat-list" name="cat_id"></select></label>
       <label class="title">价格：<input class="col col-9 form-input" name="price" type="number"></label>
       <label class="title">销量：<input class="col col-9 form-input" name="sales" type="number"></label>
-      <label class="title cover_img">封面：<input class="cover_file" name="cover_path" type="file" placeholder="cover"></label>
+      <label class="title cover_img tal">封面：<input class="cover_file" name="cover_path" type="file" placeholder="cover"></label>
       <div class="btn-box"><button class="form-btn submit-btn" type="submit">提交</button><div>
     `;
   }

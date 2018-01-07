@@ -14,14 +14,15 @@ class Product extends Api
   public function add($p, &$msg)
   {
 
-    // dd($p);
+    unset($p['cover_path']);
     $id = $this->safe_fill($p)->save($msg);
 
     if ($id) {
-      if (move_uploaded('cover_path', $upload))
+      if (move_uploaded('cover_path', $upload)){
         $this
           ->where('id', $id)
           ->update(['cover_path' => $upload['fullname']]);
+      }
       return $id;
     }
 

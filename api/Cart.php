@@ -18,22 +18,6 @@ class Cart extends Api
   public function read($p = null, &$msg = null)
   {
     $his_id = his('id');
-    // $s = $this
-    //   ->pdo
-    //   ->prepare("
-    //   SELECT
-    //     cart.product_id,
-    //     cart.count,
-    //     product.title AS product_title,
-    //     product.price AS product_price
-    //   from cart INNER JOIN product ON cart.product_id = product.id
-    //   where cart.user_id = $his_id
-    //   ");
-
-    // $s->execute();
-    // return $s->fetchAll(PDO::FETCH_ASSOC);
-
-    // dd($his_id);
 
     $r = $this->select(['product.title','cart.product_id','product.price','cart.count','cart.user_id','cart.id'])
     ->join(['product','user'])
@@ -49,8 +33,7 @@ class Cart extends Api
     $data = [];
     $count = 0;
     $user_id = $_SESSION['user']['id'];
-    // $r = $this->where('user_id',$user_id)
-    //       ->get();
+
     $r = $this->select(['product.title','cart.product_id','product.price','cart.count','cart.user_id','cart.id'])
     ->join(['product','user'])
     ->where('user.id',$user_id)
@@ -71,14 +54,6 @@ class Cart extends Api
     return $this->where('user_id',$id)
       ->delete();
   }
-
-  // public function read_shopping_cart()
-  // {
-  //   return $this->select(['product.title','cart.product_id','product.price','cart.count','cart.user_id'])
-  //   ->join(['product','user'])
-  //   ->where('user.id',27)
-  //   ->get();
-  // }
 
   public function add_or_update($p, &$msg)
   {

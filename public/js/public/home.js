@@ -136,9 +136,9 @@
         el.innerHTML = `
           <div class="title">${row.title}</div>
           <div class="count">
-            <button class="minus">-</button>
+            <a class="minus"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a>
             <input class="count-num" type="text" value="${row.count}">
-            <button class="add">+</button>
+            <a class="add"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
           </div>
           <div class="product-price-sum red">¥ ${product_price_sum}</div>
         `;

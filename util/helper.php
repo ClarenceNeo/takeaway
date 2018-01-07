@@ -84,9 +84,10 @@ function move_uploaded($key, &$data = null)
 
   $file = @$_FILES[$key];
 
-  if ( ! $tmp = $file['tmp_name'])
-    return false;
+  
 
+  if ( !$tmp = $file['tmp_name'])
+    return false;
   // dd($file);
   $old_name = $file['name'];
   $file_name = uniqid() . '.' . rand(100, 999);

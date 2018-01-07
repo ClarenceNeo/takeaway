@@ -52,16 +52,23 @@
               holder = me.$holder;
               if (!holder) {
                 parent = me.querySelector('.cover_img');
-                holder = me.$holder = document.createElement('label');
+                holder = me.$holder = document.createElement('a');
+                holder.classList.add('cover-img-upload')
                 parent.insertBefore(holder, input);
                 holder.addEventListener('click', function () {
-                  holder.hidden = true;
+                  // holder.hidden = true;
+                  holder.style.display = 'none';
                   input.hidden = false;
                 });
               }
               input.hidden = true;
-              holder.hidden = false;
-              holder.innerHTML = '已上传文件：' + new_val + '，点击修改';
+              // holder.hidden = false;
+              holder.style.display = 'inline-block';
+              console.log(holder);
+              // holder.innerHTML = '已上传文件：' + new_val + '，点击修改';
+              holder.innerHTML = `
+                <img src="/upload/${new_val}">
+              `;
               break;
           }
           break;
