@@ -4,7 +4,7 @@ import('api/Api');
 
 class Product extends Api
 {
-  public $table = 'Product';
+  public $table = 'product';
 
   public $rule = [
     'title' => 'max_length: 24|min_length:2',
