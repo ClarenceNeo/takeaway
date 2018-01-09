@@ -64,7 +64,7 @@
               input.hidden = true;
               // holder.hidden = false;
               holder.style.display = 'inline-block';
-              console.log(holder);
+              // console.log(holder);
               // holder.innerHTML = '已上传文件：' + new_val + '，点击修改';
               holder.innerHTML = `
                 <img src="/upload/${new_val}">

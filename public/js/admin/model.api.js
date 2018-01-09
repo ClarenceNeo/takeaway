@@ -37,7 +37,7 @@
   Model.prototype.add_change = function (param) {
     $.post('/api/' + this.name + '/add_or_change', param)
       .then(function (r) {
-        console.log(r);
+        // console.log(r);
       })
   }
 
