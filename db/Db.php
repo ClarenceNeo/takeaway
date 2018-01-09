@@ -6,7 +6,6 @@ class Db
 
   public $escaped_table;
 
-  public $database = 'takeaway';
   public $pdo;
 
   public $sql = '';
@@ -38,8 +37,9 @@ class Db
   public function connect()
   {
     if ($this->pdo) return;
+    $database = config('db_name');
     $host = config('db_host');
-    $this->pdo = new PDO("mysql:dbname=$this->database;host=$host",config('db_username'), config('db_password'),
+    $this->pdo = new PDO("mysql:dbname=$database;host=$host",config('db_username'), config('db_password'),
       [
         /* 常用设置 */
         PDO::ATTR_CASE              => PDO::CASE_NATURAL, /*PDO::CASE_NATURAL | PDO::CASE_LOWER 小写，PDO::CASE_UPPER 大写， */
