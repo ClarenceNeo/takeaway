@@ -36,7 +36,21 @@
     <?php endif; ?>
   </div>
   <div class="place">
-    <div></div>
+    <div class="row shopguide">
+      <div class="col col-4 icon-box"><a class="icon" href=""><img src="upload/icon.png" alt=""></a></div>
+      <div class="col col-2">
+        <h3 class="tac">起送价</h3>
+        <div class="tac info">20元</div>
+      </div>
+      <div class="col col-2">
+        <h3 class="tac">配送费</h3>
+        <div class="tac info">配送费¥2</div>
+      </div>
+      <div class="col col-2">
+        <h3 class="tac">平均送达速度</h3>
+        <div class="tac info">46分钟</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -70,7 +84,7 @@
 <div class="musk"></div>
 <div class="place clearfix">
   <!-- <div class="item addr">当前位置：</div> -->
-  <div class="item search-box"><input class="search-bar" type="text" placeholder="搜索美食"></div>
+  <!-- <div class="item search-box"><input class="search-bar" type="text" placeholder="搜索美食"></div> -->
 </div>
 <div class="place cat">
   <div class="box" id="wrap">
