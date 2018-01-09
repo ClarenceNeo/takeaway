@@ -9,6 +9,7 @@
     this.form_tpl_maker = null;
     this.table_tpl_maker = null;
     this.handle = false;
+    this.pager = false;
     this.after_read = function(){
       this.render();
     }
@@ -28,11 +29,6 @@
 
   Ui.prototype = Object.create(Model.prototype);
   Ui.prototype.constructor = Ui;
-  // Ui.prototype.list_each = function(callback) {
-  //   this.list.forEach(function(item, index) {
-  //     callback(item, index);
-  //   });
-  // };
 
   function render_table(me){
     me.el_table.innerHTML = '';
@@ -49,6 +45,30 @@
         me.on_render_table_item(el, item);
       me.el_table.appendChild(el);
     });
+
+    if (me.pager) {
+      var pager = document.createElement('tr');
+      pager.classList.add('page-box');
+      pager.innerHTML = `<td colspan="7">
+      <button class="btn" id="page-up">上一页</button>
+      <button class="btn" id="page-down">下一页</button></td>`;
+      pager.querySelector('#page-up').addEventListener('click', function() {
+        --me.page;
+        if(me.page == 0){
+          me.page = 1;
+        }
+        me.read();
+      })
+      pager.querySelector('#page-down').addEventListener('click', function() {
+        ++me.page;
+        if (me.list.length<15) {
+          --me.page;
+        }
+        me.read();
+      })
+      me.el_table.appendChild(pager);
+      
+    }
   }
 
   function render_form(me){

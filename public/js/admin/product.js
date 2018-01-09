@@ -5,6 +5,8 @@
   product.handle = true;
   var cat_api = new Model('cat');
 
+  product.pager = true;
+
   var el_page_up = document.querySelector('#page-up');
   var el_page_down = document.querySelector('#page-down');
 
@@ -48,14 +50,6 @@
   product.after_read = function () {
     this.render();
     cat_api.read();
-    el_page_up.addEventListener('click', function() {
-      product.page--;
-      product.read();
-    });
-    el_page_down.addEventListener('click', function () {
-      product.page++;
-      product.read();
-    });
   }
 
   product.init();

@@ -31,10 +31,6 @@
     </thead>
     <tbody></tbody>
   </table>
-  <div>
-    <button id="page-up">上一页</button>
-    <button id="page-down">下一页</button>
-  </div>
 </div>
 <?php import('view/component/js') ?>
 <?php import('view/component/admin_js') ?>

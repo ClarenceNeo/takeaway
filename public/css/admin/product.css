@@ -65,3 +65,25 @@ table {
   padding-left: 24px;
   vertical-align: top;
 }
+
+.page-box {
+  width: 120px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.page-box .btn {
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #299FFC;
+  color: #fff;
+  border: none;
+}
+
+.page-box .btn:hover {
+  background: #29b8fc;
+}
+
+.page-box .btn:active {
+  background: #2991fc;
+}
