@@ -15,7 +15,9 @@
 <div class="header">
   <div class="nav place">
     <a class="item active" href="/">首页</a>
-    <a class="item order menu" href="/user/order">我的订单</a>
+    <?php if(@$_SESSION['user']): ?>
+      <a class="item order menu" href="/user/order">我的订单</a>
+    <?php endif; ?>
     <?php if(@$_SESSION['user']['permission']==='admin'): ?>
       <a href="admin/product" class="item menu">后台管理</a>
     <?php endif; ?>
